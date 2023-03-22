@@ -20,7 +20,6 @@ class RestaurateurSeeder extends Seeder
         foreach ($restaurateurs as $restaurateur) {
             $newRestaurateur = new Restaurateur();
             $newRestaurateur->name = $restaurateur['name'];
-            $newRestaurateur->password = $restaurateur['password'];
             $newRestaurateur->email = $restaurateur['email'];
             $newRestaurateur->address = $restaurateur['address'];
             $newRestaurateur->image = $restaurateur['image'];

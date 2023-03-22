@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('plates', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100)->unique();
-            $table->string('slug', 70);
-            $table->string('ingredients', 50);
+            $table->string('name', 100);
+            $table->string('slug', 70)->unique();
+            $table->string('ingredients', 100);
+            $table->string('image');
             $table->float('price', 4, 2)->unsigned();
             $table->boolean('visible');
             $table->boolean('availability');
