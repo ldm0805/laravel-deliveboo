@@ -102,10 +102,8 @@ class RestaurateurController extends Controller
     {
         $form_data = $request->validated();
     
-        // Genero uno slug tramite una funzione (project.php) dal titolo del progetto
-        $slug = Restaurateur::generateSlug($request->title);
+        $slug = Restaurateur::generateSlug($request->name);
     
-        // Lo slug viene aggiunto ai dati del form
         $form_data['slug'] = $slug;
     
         if($request->has('image')){

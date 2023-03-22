@@ -49,7 +49,7 @@ class PlateController extends Controller
      */
     public function show(Plate $plate)
     {
-        //
+        return view('admin.plates.show', compact('plate'));
     }
 
     /**
@@ -60,7 +60,7 @@ class PlateController extends Controller
      */
     public function edit(Plate $plate)
     {
-        //
+        return view('admin.plates.edit', compact('plate'));
     }
 
     /**
@@ -72,7 +72,26 @@ class PlateController extends Controller
      */
     public function update(UpdatePlateRequest $request, Plate $plate)
     {
-        //
+        $form_data = $request->validated();
+    
+        // Genero uno slug tramite una funzione (project.php) dal titolo del progetto
+        $slug = Plate::generateSlug($request->name);
+    
+        // Lo slug viene aggiunto ai dati del form
+        $form_data['slug'] = $slug;
+    
+        if($request->has('image')){
+         
+             if($plate->image){
+                 Storage::delete($plate->image);
+             }
+             
+             $path = Storage::disk('public')->put('images_folder', $request->image);
+             $form_data['image'] = $path;
+         }
+
+        $plate->update($form_data);       
+        return redirect()->route('admin.plates.index')->with('message', 'La modifica del è andata a buon fine.');
     }
 
     /**
@@ -83,6 +102,7 @@ class PlateController extends Controller
      */
     public function destroy(Plate $plate)
     {
-        //
+        $plate->delete();
+        return redirect()->route('admin.plates.index')->with('message', 'La cancellazione del è andata a buon fine.');
     }
 }

@@ -13,7 +13,7 @@ class UpdatePlateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class UpdatePlateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
-        ];
+            'name' => ['required', 'max:100'],
+            'ingedients' => ['max:100'],
+            'image' => ['required'],
+            'price' => ['required', 'numeric', 'between:0,01.99'],
+    ];
     }
 }
