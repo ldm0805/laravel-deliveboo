@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('slug', 70)->unique();
             $table->string('ingredients', 100);
             $table->string('image');
-            $table->float('price', 4, 2)->unsigned();
+            $table->decimal('price', 4, 2)->unsigned();
             $table->boolean('visible');
             $table->boolean('availability');
             $table->text('description')->nullable();

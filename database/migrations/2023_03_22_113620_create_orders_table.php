@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('surname', 70)->required();
             $table->string('phone', 15)->required();
             $table->date('date');
-            $table->float('total', 5,2);
+            $table->decimal('total', 5, 2);
             $table->string('address', 100)->required();
             $table->string('mail')->nullable();
             $table->timestamps();
