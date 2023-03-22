@@ -23,14 +23,13 @@
 							<div class="grid-item">{{$item['email']}}</div>
 							<div class="grid-item">{{$item['address']}}</div>
 							<div class="grid-item d-flex gap-3">
-								<div><i class="fa-solid fa-eye"></i></div>
-								<div><i class="fa-solid fa-pen"></i></div>
-								<div><i class="fa-solid fa-dumpster-fire"></i></div>
+								<a href="{{ route('admin.restaurateurs.edit', $item) }}" class="text-white"><i class="fa-solid fa-pen-to-square"></i></a>
+								<a href="{{ route('admin.restaurateurs.show', $item->slug) }}" class="text-white"><i class="fa-solid fa-eye"></i></a>
+								<a href="#" class="text-white"><i class="fa-solid fa-dumpster-fire"></i></a>
 							</div>
 						</div>
-						@endforeach
-					</div>
-				
+					@endforeach
+				</div>
 			</div>
 			{{-- <table class="table px-4 table-borderless restaurateurs-table">
 				<thead class="text-white">
