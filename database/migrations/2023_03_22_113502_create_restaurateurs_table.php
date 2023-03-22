@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email', 50)->unique()->required();
             $table->string('password', 50)->required();
             $table->string('name', 50)->required();
+            $table->string('slug', 70);
             $table->string('address', 100)->required();
             $table->string('p_iva', 11)->required();
             $table->string('image')->nullable();
