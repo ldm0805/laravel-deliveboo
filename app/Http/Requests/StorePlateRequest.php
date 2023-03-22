@@ -13,7 +13,7 @@ class StorePlateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class StorePlateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+           'name' => ['required', 'max:100', 'unique:plates'],
+           'ingredients' => ['max:100'],
+           'image' => ['required'],
+           'price' => ['required'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Il nome è obbligatorio',
+            'ingredients.max' => 'Ingredienti è troppo lungo',
+            'price.required' => 'Il prezzo è obbligatorio',
+            'image.required' => "L'immagine è obbligatoria"
         ];
     }
 }

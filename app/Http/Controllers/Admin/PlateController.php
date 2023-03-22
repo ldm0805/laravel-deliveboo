@@ -17,7 +17,9 @@ class PlateController extends Controller
      */
     public function index()
     {
-        //
+        $plates = Plate::all();
+
+        return view('admin.plates.index', compact('plates'));
     }
 
     /**
@@ -27,7 +29,8 @@ class PlateController extends Controller
      */
     public function create()
     {
-        //
+        $plates = Plate::all();
+        return view('admin.plates.create', compact('plates'));
     }
 
     /**
@@ -38,7 +41,25 @@ class PlateController extends Controller
      */
     public function store(StorePlateRequest $request)
     {
-        //
+        $form_data = $request->validated();
+
+        $newPlate = new Plate();
+
+        $slug = Plate::generateSlug($form_data['name']);
+
+        $form_data['slug'] = $slug;
+
+        if($request->hasFile('image')){
+            $path = Storage::disk('public')->put('images_folder', $request->cover_image);
+
+            $form_data['image'] = $path;
+        }
+
+        $newPlate->fill($form_data);
+
+        $newPlate->save();
+
+        return redirect()->route('admin.restaurateurs.index', $newPlate->slug)->with('message', 'Piatto aggiunto correttamente');
     }
 
     /**
