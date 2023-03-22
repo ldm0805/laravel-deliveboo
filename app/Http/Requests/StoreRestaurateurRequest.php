@@ -39,7 +39,7 @@ class StoreRestaurateurRequest extends FormRequest
             'email.required' => 'La mail è obbligatoria',
             'address.required' => "L'indirizzo è obbligatorio",
             'p_iva.required' => 'La P_IVA è obbligatoria',
-            'image.required' => "L'immagine è obbligatorio"
+            'image.required' => "L'immagine è obbligatoria"
         ];
     }
 }
