@@ -14,4 +14,13 @@ class Restaurateur extends Model
     public static function generateSlug($name){
         return Str::slug($name, '-');
     }
+
+    public function plate(){
+        return $this->belongsTo(Plate::class);
+    }
+
+    public function types(){
+        return $this->belongsToMany(Type::class);
+    }
+
 }

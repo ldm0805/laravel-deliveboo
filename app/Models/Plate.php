@@ -14,4 +14,12 @@ class Plate extends Model
     public static function generateSlug($name){
         return Str::slug($name, '-');
     }
+    public function restaurateurs(){
+        return $this->hasMany(Restaurateur::class);
+    }
+
+    public function orders(){
+        return $this->belongsToMany(Order::class);
+
+    }
 }
