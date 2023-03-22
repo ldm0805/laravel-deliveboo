@@ -6,6 +6,8 @@ use App\Models\Restaurateur;
 use App\Http\Requests\StoreRestaurateurRequest;
 use App\Http\Requests\UpdateRestaurateurRequest;
 use App\Http\Controllers\Controller; //NECESSARIO 
+use Illuminate\Support\Facades\Storage;
+
 use App\Models\Type; 
 
 
@@ -44,8 +46,6 @@ class RestaurateurController extends Controller
     {
         $form_data = $request->validated();
 
-
-
         $newRestaurateur = new Restaurateur();
 
         $slug = Restaurateur::generateSlug($form_data['name']);
@@ -65,9 +65,6 @@ class RestaurateurController extends Controller
         if($request->has('types')){
             $newRestaurateur->types()->attach($request->types);
         }
-
-
-
         return redirect()->route('admin.restaurateurs.index', $newRestaurateur->id)->with('message', 'Ristoratore aggiunto correttamente');
     }
 
@@ -91,7 +88,7 @@ class RestaurateurController extends Controller
     public function edit(Restaurateur $restaurateur)
     {
         $types = Type::all();
-        return view('admin.restaurateurs.edit', compact('restaurateur', 'types'));
+        return view('admin.restaurateurs.edit', compact('restaurateur','types'));
     }
 
     /**
@@ -121,7 +118,7 @@ class RestaurateurController extends Controller
              $form_data['image'] = $path;
          }
 
-        $project->update($form_data);
+        $restaurateur->update($form_data);
  
         
         return redirect()->route('admin.restaurateurs.index')->with('message', 'La modifica del è andata a buon fine.');
@@ -135,7 +132,7 @@ class RestaurateurController extends Controller
      */
     public function destroy(Restaurateur $restaurateur)
     {
-        $project->delete();
+        $restaurateur->delete();
         // Reindirizzamento all'index con messaggio di conferma eliminazione
         return redirect()->route('admin.restaurateurs.index')->with('message', 'La cancellazione del è andata a buon fine.');
     }

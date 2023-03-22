@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 class Restaurateur extends Model
 {
     use HasFactory;
-    protected $fillable=['name', 'slug','image','p_iva','address'];
+    protected $fillable=['name', 'slug','image','p_iva','address','email', 'user_id'];
     public static function generateSlug($name){
         return Str::slug($name, '-');
     }

@@ -25,7 +25,7 @@ class StoreRestaurateurRequest extends FormRequest
     {
         return [
            'name' => ['required', 'max:50'],
-           'email' => ['required', 'max:50', 'unique:restaurateur'],
+           'email' => ['required', 'max:50', 'unique:restaurateurs'],
            'address' => ['required', 'max:100'],
            'p_iva' => ['required', 'max:11'],
            'image' => ['required']
