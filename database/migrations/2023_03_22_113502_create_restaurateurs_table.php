@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('restaurateurs', function (Blueprint $table) {
             $table->id();
+            $table->string('email', 50)->unique()->required();
+            $table->string('password', 50)->required();
+            $table->string('name', 50)->required();
+            $table->string('address', 100)->required();
+            $table->string('p_iva', 11)->required();
+            $table->string('image')->nullable();
+
             $table->timestamps();
         });
     }
