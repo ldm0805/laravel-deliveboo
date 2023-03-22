@@ -13,7 +13,7 @@ class StoreRestaurateurRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,22 @@ class StoreRestaurateurRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+           'name' => ['required', 'max:50'],
+           'email' => ['required', 'max:50', 'unique:restaurateur'],
+           'address' => ['required', 'max:100'],
+           'p_iva' => ['required', 'max:11'],
+           'image' => ['required']
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Il nome è obbligatorio',
+            'email.required' => 'La mail è obbligatoria',
+            'address.required' => "L'indirizzo è obbligatorio",
+            'p_iva.required' => 'La P_IVA è obbligatoria',
+            'image.required' => "L'immagine è obbligatorio"
         ];
     }
 }

@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Restaurateur;
 use App\Http\Requests\StoreRestaurateurRequest;
 use App\Http\Requests\UpdateRestaurateurRequest;
-use App\Http\Controllers\Controller; //NECESSARIO  
+use App\Http\Controllers\Controller; //NECESSARIO 
+use App\Models\Type; 
 
 
 class RestaurateurController extends Controller
@@ -17,7 +18,9 @@ class RestaurateurController extends Controller
      */
     public function index()
     {
-        //
+        $restaurateurs = Restaurateur::all();
+
+        return view('admin.restaurateurs.index', compact('restaurateurs'));
     }
 
     /**
@@ -27,7 +30,8 @@ class RestaurateurController extends Controller
      */
     public function create()
     {
-        //
+        $types = Type::all();
+        return view('admin.restaurateurs.create', compact('types'));
     }
 
     /**
@@ -38,7 +42,33 @@ class RestaurateurController extends Controller
      */
     public function store(StoreRestaurateurRequest $request)
     {
-        //
+        $form_data = $request->validated();
+
+
+
+        $newRestaurateur = new Restaurateur();
+
+        $slug = Restaurateur::generateSlug($form_data['name']);
+
+        $form_data['slug'] = $slug;
+
+        if($request->hasFile('image')){
+            $path = Storage::disk('public')->put('images_folder', $request->cover_image);
+
+            $form_data['image'] = $path;
+        }
+
+        $newRestaurateur->fill($form_data);
+
+        $newRestaurateur->save();
+
+        if($request->has('types')){
+            $newRestaurateur->types()->attach($request->types);
+        }
+
+
+
+        return redirect()->route('admin.restaurateurs.index', $newRestaurateur->id)->with('message', 'Ristoratore aggiunto correttamente');
     }
 
     /**
