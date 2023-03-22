@@ -31,28 +31,6 @@
 					@endforeach
 				</div>
 			</div>
-			{{-- <table class="table px-4 table-borderless restaurateurs-table">
-				<thead class="text-white">
-					<th>Nome</th>
-					<th>Mail</th>
-					<th>Indirizzo</th>
-					<th>Controllers</th>
-				</thead>
-				<tbody class="text-white">
-					@foreach (as $item)
-						<tr class="align-middle">
-							<td>{{$item['name']}}</td>
-							<td>{{$item['email']}}</td>
-							<td>{{$item['address']}}</td>
-							<td>
-								<div class="button btn btn-primary"><i class="fa-solid fa-eye"></i></div>
-								<div class="button btn btn-primary"><i class="fa-solid fa-pen"></i></div>
-								<div class="button btn btn-primary"><i class="fa-solid fa-dumpster-fire"></i></div>
-							</td>
-						</tr>
-					@endforeach
-				</tbody>
-			</table> --}}
 		@endif
 	</div>
 @endsection
