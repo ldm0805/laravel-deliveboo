@@ -131,7 +131,6 @@ class RestaurateurController extends Controller
     public function destroy(Restaurateur $restaurateur)
     {
         $restaurateur->delete();
-        // Reindirizzamento all'index con messaggio di conferma eliminazione
         return redirect()->route('admin.restaurateurs.index')->with('message', 'La cancellazione del è andata a buon fine.');
     }
 }

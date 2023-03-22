@@ -30,10 +30,7 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('restaurateurs', RestaurateurController::class)->parameters(['restaurateurs' => 'restaurateur:slug']);
-    Route::resource('plates', PlateController::class)->parameters(['plates' => 'plate:slug']);
-
-
-    
+    Route::resource('plates', PlateController::class)->parameters(['plates' => 'plate:slug']);    
 });
 
 

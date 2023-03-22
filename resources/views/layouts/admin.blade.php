@@ -59,17 +59,17 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurateurs.index' ? 'bg-secondary' : '' }}" href="{{route('admin.restaurateurs.index') }}">
                                     <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> 
-                                    Projects
+                                    Ristoranti
                                 </a>
-                                 {{-- <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.create' ? 'bg-secondary' : '' }}" href="{{route('admin.projects.create') }}">
+                                  <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurateurs.create' ? 'bg-secondary' : '' }}" href="{{route('admin.restaurateurs.create') }}">
                                     <i class="fa-solid fa-square-plus fa-lg fa-fw"></i>
-                                    Aggiungi un nuovo progetto
+                                    Aggiungi un nuovo ristorante
                                 </a>
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-secondary' : '' }}" href="{{route('admin.types.index')}}">
+                                  {{--<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.plates.index' ? 'bg-secondary' : '' }}" href="{{route('admin.plates.index')}}">
                                     <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> 
-                                    Livelli di difficoltà
+                                    Piatti
                                 </a>
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.create' ? 'bg-secondary' : '' }}" href="{{route('admin.types.create')}}">
+                              <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.create' ? 'bg-secondary' : '' }}" href="{{route('admin.types.create')}}">
                                     <i class="fa-solid fa-square-plus fa-lg fa-fw"></i>
                                     Aggiungi un nuovo livello di difficoltà
                                 </a>

@@ -26,6 +26,13 @@
 								<a href="{{ route('admin.restaurateurs.edit', $item) }}" class="text-white"><i class="fa-solid fa-pen-to-square"></i></a>
 								<a href="{{ route('admin.restaurateurs.show', $item->slug) }}" class="text-white"><i class="fa-solid fa-eye"></i></a>
 								<a href="#" class="text-white"><i class="fa-solid fa-dumpster-fire"></i></a>
+								 <form class="d-inline-block" action="{{route('admin.restaurateurs.destroy', $item->slug)}}" method="POST">
+									@csrf
+									@method('DELETE')
+									<button class="btn btn-danger btn-sm btn-square confirm-delete-button" type="submit" title="Cancella restaurateurs">
+										<i class="fas fa-trash"></i>
+									</button>
+								</form> 
 							</div>
 						</div>
 					@endforeach
