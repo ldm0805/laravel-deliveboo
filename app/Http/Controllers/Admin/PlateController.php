@@ -6,6 +6,7 @@ use App\Models\Plate;
 use App\Http\Requests\StorePlateRequest;
 use App\Http\Requests\UpdatePlateRequest;
 use App\Http\Controllers\Controller; //NECESSARIO  
+use Illuminate\Support\Facades\Storage;
 
 
 class PlateController extends Controller
