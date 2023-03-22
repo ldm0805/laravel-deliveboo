@@ -13,7 +13,7 @@ class UpdateRestaurateurRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class UpdateRestaurateurRequest extends FormRequest
     public function rules()
     {
         return [
-            //
-        ];
+            'name' => ['required', Rule::unique('restaurateurs')->ignore($this->restaurateur), 'max:50'],
+            'email' => ['required'],
+            'address' => ['required', 'max:100'],
+            'p_iva' => ['required', 'max:11'],
+            'image' => ['nullable'],
+    ];
     }
 }

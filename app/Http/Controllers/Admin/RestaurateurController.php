@@ -49,7 +49,7 @@ class RestaurateurController extends Controller
      */
     public function show(Restaurateur $restaurateur)
     {
-        return view('admin.restaurateur.show', compact('restaurateur'));
+        return view('admin.restaurateurs.show', compact('restaurateur'));
     }
 
     /**
@@ -61,7 +61,7 @@ class RestaurateurController extends Controller
     public function edit(Restaurateur $restaurateur)
     {
         $types = Type::all();
-        return view('admin.restaurateur.edit', compact('restaurateur', 'types'));
+        return view('admin.restaurateurs.edit', compact('restaurateur', 'types'));
     }
 
     /**
@@ -76,28 +76,25 @@ class RestaurateurController extends Controller
         $form_data = $request->validated();
     
         // Genero uno slug tramite una funzione (project.php) dal titolo del progetto
-        $slug = Project::generateSlug($request->title);
+        $slug = Restaurateur::generateSlug($request->title);
     
         // Lo slug viene aggiunto ai dati del form
         $form_data['slug'] = $slug;
     
-        if($request->has('cover_image')){
+        if($request->has('image')){
          
-             if($project->cover_image){
-                 Storage::delete($project->cover_image);
+             if($restaurateur->image){
+                 Storage::delete($restaurateur->image);
              }
              
-             $path = Storage::disk('public')->put('project_images', $request->cover_image);
-             $form_data['cover_image'] = $path;
+             $path = Storage::disk('public')->put('images_folder', $request->image);
+             $form_data['image'] = $path;
          }
-         
-         if($request->has('tags')){
-              $project->tags()->sync($request->tags);
-         }
+
         $project->update($form_data);
  
         
-        return redirect()->route('admin.restaurateur.index')->with('message', 'La modifica del project '.$project->title.' è andata a buon fine.');
+        return redirect()->route('admin.restaurateurs.index')->with('message', 'La modifica del è andata a buon fine.');
     }
 
     /**
@@ -108,6 +105,8 @@ class RestaurateurController extends Controller
      */
     public function destroy(Restaurateur $restaurateur)
     {
-        //
+        $project->delete();
+        // Reindirizzamento all'index con messaggio di conferma eliminazione
+        return redirect()->route('admin.restaurateurs.index')->with('message', 'La cancellazione del è andata a buon fine.');
     }
 }
