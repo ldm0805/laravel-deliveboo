@@ -51,17 +51,17 @@
                             <div class="bg-danger">
                                 <i class="fa fa-address-book" aria-hidden="true"></i>
                             </div>
-                            {{-- <li class="nav-item">
+                           <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}" href="{{route('admin.dashboard')}}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}" href="{{route('admin.projects.index') }}">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurateurs.index' ? 'bg-secondary' : '' }}" href="{{route('admin.restaurateurs.index') }}">
                                     <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> 
                                     Projects
                                 </a>
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.create' ? 'bg-secondary' : '' }}" href="{{route('admin.projects.create') }}">
+                                 {{-- <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.create' ? 'bg-secondary' : '' }}" href="{{route('admin.projects.create') }}">
                                     <i class="fa-solid fa-square-plus fa-lg fa-fw"></i>
                                     Aggiungi un nuovo progetto
                                 </a>
@@ -80,8 +80,8 @@
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.tags.create' ? 'bg-secondary' : '' }}" href="{{route('admin.tags.create')}}">
                                     <i class="fa-solid fa-tag fa-lg fa-fw"></i>
                                     Aggiungi un nuovo tag
-                                </a> 
-                            </li> --}}
+                                </a>  --}}
+                            </li>
 
                         </ul>
                     </div>
