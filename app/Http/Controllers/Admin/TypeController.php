@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Plate;
-use App\Http\Requests\StorePlateRequest;
-use App\Http\Requests\UpdatePlateRequest;
+use App\Models\Type;
+use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\UpdateTypeRequest;
+use App\Http\Controllers\Controller; //NECESSARIO  
 
-class PlateController extends Controller
+
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +33,10 @@ class PlateController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePlateRequest  $request
+     * @param  \App\Http\Requests\StoreTypeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePlateRequest $request)
+    public function store(StoreTypeRequest $request)
     {
         //
     }
@@ -42,10 +44,10 @@ class PlateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Plate  $plate
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function show(Plate $plate)
+    public function show(Type $type)
     {
         //
     }
@@ -53,10 +55,10 @@ class PlateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Plate  $plate
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function edit(Plate $plate)
+    public function edit(Type $type)
     {
         //
     }
@@ -64,11 +66,11 @@ class PlateController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePlateRequest  $request
-     * @param  \App\Models\Plate  $plate
+     * @param  \App\Http\Requests\UpdateTypeRequest  $request
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePlateRequest $request, Plate $plate)
+    public function update(UpdateTypeRequest $request, Type $type)
     {
         //
     }
@@ -76,10 +78,10 @@ class PlateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Plate  $plate
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Plate $plate)
+    public function destroy(Type $type)
     {
         //
     }

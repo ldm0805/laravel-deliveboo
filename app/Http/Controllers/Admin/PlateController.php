@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Restaurateur;
-use App\Http\Requests\StoreRestaurateurRequest;
-use App\Http\Requests\UpdateRestaurateurRequest;
+use App\Models\Plate;
+use App\Http\Requests\StorePlateRequest;
+use App\Http\Requests\UpdatePlateRequest;
+use App\Http\Controllers\Controller; //NECESSARIO  
 
-class RestaurateurController extends Controller
+
+class PlateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +33,10 @@ class RestaurateurController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreRestaurateurRequest  $request
+     * @param  \App\Http\Requests\StorePlateRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRestaurateurRequest $request)
+    public function store(StorePlateRequest $request)
     {
         //
     }
@@ -42,10 +44,10 @@ class RestaurateurController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Restaurateur  $restaurateur
+     * @param  \App\Models\Plate  $plate
      * @return \Illuminate\Http\Response
      */
-    public function show(Restaurateur $restaurateur)
+    public function show(Plate $plate)
     {
         //
     }
@@ -53,10 +55,10 @@ class RestaurateurController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Restaurateur  $restaurateur
+     * @param  \App\Models\Plate  $plate
      * @return \Illuminate\Http\Response
      */
-    public function edit(Restaurateur $restaurateur)
+    public function edit(Plate $plate)
     {
         //
     }
@@ -64,11 +66,11 @@ class RestaurateurController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateRestaurateurRequest  $request
-     * @param  \App\Models\Restaurateur  $restaurateur
+     * @param  \App\Http\Requests\UpdatePlateRequest  $request
+     * @param  \App\Models\Plate  $plate
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRestaurateurRequest $request, Restaurateur $restaurateur)
+    public function update(UpdatePlateRequest $request, Plate $plate)
     {
         //
     }
@@ -76,10 +78,10 @@ class RestaurateurController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Restaurateur  $restaurateur
+     * @param  \App\Models\Plate  $plate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Restaurateur $restaurateur)
+    public function destroy(Plate $plate)
     {
         //
     }
