@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 class Plate extends Model
 {
     use HasFactory;
-    protected $fillable=['name', 'slug','image','ingredients','visible', 'price', 'availability', 'description'];
+    protected $fillable=['name', 'slug','image','ingredients','visible', 'price', 'availability', 'description', 'restaurateur_id'];
     public static function generateSlug($name){
         return Str::slug($name, '-');
     }
