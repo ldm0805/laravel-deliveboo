@@ -3,7 +3,9 @@
 @section('content')
 <div class="text-white">
     <h4 class="mt-5">Ristorante: {{$restaurateur->name}}.</h4>
+    <div class="box-image">
     {!! $utils->displayImage($restaurateur->image, $restaurateur->name) !!}
+    </div>
     <p>Email: {{$restaurateur->email}}</p>
     <p>Indirizzo: {{$restaurateur->address}}</p>
     <p>P. IVA: {{$restaurateur->p_iva}}</p>
