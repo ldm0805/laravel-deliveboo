@@ -17,7 +17,7 @@
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="ristorante">Ristorante</label>
-                    <select class="d-block form-control" name="restaurateur_id" id="ristorante">
+                    <select class="d-block form-control" name="restaurateur_id" id="restaurateur_id">
                         <option value="">Seleziona tipo</option>
                         @foreach ($restaurateurs as $restaurateur)                                
                         <option value="{{$restaurateur->id}}">{{$restaurateur->name}}</option>

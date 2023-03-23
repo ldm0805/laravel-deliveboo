@@ -29,7 +29,8 @@ class UpdatePlateRequest extends FormRequest
             'image' => ['required'],
             'price' => ['required', 'numeric', 'between:0,99.99'],
             'visible' => ['required'],
-            'availability' => ['required']
+            'availability' => ['required'],
+            'restaurateur_id' => ['required']
     ];
     }
 }

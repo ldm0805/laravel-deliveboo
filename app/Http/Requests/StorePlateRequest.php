@@ -29,7 +29,8 @@ class StorePlateRequest extends FormRequest
            'image' => ['required'],
            'price' => ['required'],
            'visible' => ['required'],
-           'availability' => ['required']
+           'availability' => ['required'],
+           'restaurateur_id' => ['required']
         ];
     }
 
