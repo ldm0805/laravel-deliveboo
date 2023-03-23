@@ -53,39 +53,42 @@
                 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
-                            <div class="bg-danger">
-                                <i class="fa fa-address-book" aria-hidden="true"></i>
-                            </div>
-                           <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}" href="{{route('admin.dashboard')}}">
+                           <li class="nav-item rounded {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}">
+                                <a class="nav-link text-white" href="{{route('admin.dashboard')}}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurateurs.index' ? 'bg-secondary' : '' }}" href="{{route('admin.restaurateurs.index') }}">
-                                    <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> 
-                                    Ristoranti
+                            <li class="nav-item rounded {{ Route::currentRouteName() == 'admin.restaurateurs.index' ? 'bg-secondary' : '' }}">
+                                <a class="nav-link text-white" href="{{route('admin.restaurateurs.index') }}">
+                                    <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> Ristoranti
                                 </a>
-                                  <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurateurs.create' ? 'bg-secondary' : '' }}" href="{{route('admin.restaurateurs.create') }}">
-                                    <i class="fa-solid fa-square-plus fa-lg fa-fw"></i>
-                                    Aggiungi un nuovo ristorante
+                            </li>
+                            <li class="nav-item rounded {{ Route::currentRouteName() == 'admin.restaurateurs.create' ? 'bg-secondary' : '' }}">
+                                <a class="nav-link text-white" href="{{route('admin.restaurateurs.create') }}">
+                                    <i class="fa-solid fa-square-plus fa-lg fa-fw"></i> Aggiungi un nuovo ristorante
                                 </a>
-                                  <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.plates.index' ? 'bg-secondary' : '' }}" href="{{route('admin.plates.index')}}">
-                                    <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> 
-                                    Piatti
+                            </li>
+                            <li class="nav-item rounded {{ Route::currentRouteName() == 'admin.plates.index' ? 'bg-secondary' : '' }}">
+                                <a class="nav-link text-white" href="{{route('admin.plates.index')}}">
+                                    <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> Piatti
                                 </a>
-                              <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.plates.create' ? 'bg-secondary' : '' }}" href="{{route('admin.plates.create')}}">
-                                    <i class="fa-solid fa-square-plus fa-lg fa-fw"></i>
-                                    Aggiungi un nuovo piatto
+                            </li>
+                            <li class="nav-item rounded {{ Route::currentRouteName() == 'admin.plates.create' ? 'bg-secondary' : '' }}">
+                                <a class="nav-link text-white" href="{{route('admin.plates.create')}}">
+                                    <i class="fa-solid fa-square-plus fa-lg fa-fw"></i> Aggiungi un nuovo piatto
                                 </a>
-                                {{--<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.tags.index' ? 'bg-secondary' : '' }}" href="{{route('admin.tags.index')}}">
-                                    <i class="fa-solid fa-tag fa-lg fa-fw"></i>
-                                    Tags
-                                </a>
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.tags.create' ? 'bg-secondary' : '' }}" href="{{route('admin.tags.create')}}">
-                                    <i class="fa-solid fa-tag fa-lg fa-fw"></i>
-                                    Aggiungi un nuovo tag
-                                </a>  --}}
+                            </li>
+                                {{--
+                                <li class="nav-item rounded {{ Route::currentRouteName() == 'admin.tags.index' ? 'bg-secondary' : '' }}">
+                                    <a class="nav-link text-white" href="{{route('admin.tags.index')}}">
+                                        <i class="fa-solid fa-tag fa-lg fa-fw"></i> Tags
+                                    </a>
+                                </li>
+                                <li class="nav-item rounded {{ Route::currentRouteName() == 'admin.tags.create' ? 'bg-secondary' : '' }}">
+                                <a class="nav-link text-white" href="{{route('admin.tags.create')}}">
+                                    <i class="fa-solid fa-tag fa-lg fa-fw"></i> Aggiungi un nuovo tag
+                                </a>  
+                                --}}
                             </li>
 
                         </ul>
