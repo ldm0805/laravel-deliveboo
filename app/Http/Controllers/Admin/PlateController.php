@@ -7,6 +7,8 @@ use App\Http\Requests\StorePlateRequest;
 use App\Http\Requests\UpdatePlateRequest;
 use App\Http\Controllers\Controller; //NECESSARIO  
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\Restaurateur;
 
 
@@ -19,7 +21,9 @@ class PlateController extends Controller
      */
     public function index()
     {
-        $plates = Plate::all();
+        $user = Auth::user();
+
+        $plates = Plate::where('user_id', $user->id)->get();
 
         return view('admin.plates.index', compact('plates'));
     }
@@ -47,11 +51,15 @@ class PlateController extends Controller
     {
         $form_data = $request->validated();
 
+        $user = Auth::user();
+
         $newPlate = new Plate();
 
         $slug = Plate::generateSlug($form_data['name']);
 
         $form_data['slug'] = $slug;
+        $form_data['user_id'] = $user->id;
+
 
         if($request->hasFile('image')){
             $path = Storage::disk('public')->put('images_folder', $request->image);
@@ -63,7 +71,7 @@ class PlateController extends Controller
 
         $newPlate->save();
 
-        return redirect()->route('admin.restaurateurs.index', $newPlate->slug)->with('message', 'Piatto aggiunto correttamente');
+        return redirect()->route('admin.plates.index', $newPlate->slug)->with('message', 'Piatto aggiunto correttamente');
     }
 
     /**

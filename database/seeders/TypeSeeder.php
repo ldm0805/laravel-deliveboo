@@ -22,7 +22,6 @@ class TypeSeeder extends Seeder
             $newType->name = $type;
             $newType->slug = Type::generateSlug($type);
             $newType->save();
-
         }
     }
 }
