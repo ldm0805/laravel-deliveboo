@@ -45,10 +45,10 @@
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="visibile">Visible</label>
-                    <select class="d-block" name="availability" id="tipo">
-                        <option value="">Seleziona visibilità</option>       
-                        <option value="si">si</option>                   
-                        <option value="no">no</option>                   
+                    <select class="d-block" name="visible" id="visibile">  
+                        <option value="">Seleziona disponibilità</option>
+                        <option value="1">si</option>       
+                        <option value="0">no</option>       
                     </select>
                     @error('visible')
                         <div class="mt-2 alert alert-danger">
@@ -60,8 +60,8 @@
                     <label class="fs-2 fw-semibold" for="disponibile">Availability</label>
                     <select class="d-block" name="availability" id="disponobile">
                         <option value="">Seleziona disponibilità</option>                           
-                        <option value="si">si</option>                   
-                        <option value="no">no</option>                    
+                        <option value="0">si</option>                   
+                        <option value="0">no</option>                    
                     </select>
                     @error('availability')
                     <div class="mt-2 alert alert-danger">

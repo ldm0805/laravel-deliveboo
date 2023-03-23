@@ -28,6 +28,8 @@ class StorePlateRequest extends FormRequest
            'ingredients' => ['max:100'],
            'image' => ['required'],
            'price' => ['required'],
+           'visible' => ['required'],
+           'availability' => ['required']
         ];
     }
 
