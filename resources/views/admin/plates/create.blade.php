@@ -26,7 +26,7 @@
                     </select>
                 </div>
                 <div class="form-group my-2">
-                    <label class="fs-2 fw-semibold" for="ingredienti">Ingredients</label>
+                    <label class="fs-2 fw-semibold" for="ingredienti">Ingredienti</label>
                     <input type="text" class="form-control" name="ingredients" id="ingredienti" placeholder="Inserire Ingredienti">
                     @error('ingredients')
                         <div class="mt-2 alert alert-danger">
@@ -35,7 +35,7 @@
                     @enderror
                 </div>
                 <div class="form-group my-2">
-                    <label class="fs-2 fw-semibold" for="prezzo">Price</label>
+                    <label class="fs-2 fw-semibold" for="prezzo">Prezzo</label>
                     <input type="number" class="form-control" name="price" id="prezzo" placeholder="Inserire Prezzo">
                     @error('price')
                         <div class="mt-2 alert alert-danger">
@@ -46,8 +46,9 @@
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="visibile">Visible</label>
                     <select class="d-block" name="availability" id="tipo">
-                        <option value="">Seleziona visible</option>                           
-                        <option value="{{$plates->id}}">{{$plates->visible}}</option>
+                        <option value="">Seleziona visibilità</option>       
+                        <option value="si">si</option>                   
+                        <option value="no">no</option>                   
                     </select>
                     @error('visible')
                         <div class="mt-2 alert alert-danger">
@@ -59,7 +60,8 @@
                     <label class="fs-2 fw-semibold" for="disponibile">Availability</label>
                     <select class="d-block" name="availability" id="disponobile">
                         <option value="">Seleziona disponibilità</option>                           
-                        <option value="{{$plates->id}}">{{$plates->availability}}</option>
+                        <option value="si">si</option>                   
+                        <option value="no">no</option>                    
                     </select>
                     @error('availability')
                     <div class="mt-2 alert alert-danger">

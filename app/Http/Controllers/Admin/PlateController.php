@@ -7,6 +7,7 @@ use App\Http\Requests\StorePlateRequest;
 use App\Http\Requests\UpdatePlateRequest;
 use App\Http\Controllers\Controller; //NECESSARIO  
 use Illuminate\Support\Facades\Storage;
+use App\Models\Restaurateur;
 
 
 class PlateController extends Controller
@@ -31,7 +32,9 @@ class PlateController extends Controller
     public function create()
     {
         $plates = Plate::all();
-        return view('admin.plates.create', compact('plates'));
+
+        $restaurateurs = Restaurateur::all();
+        return view('admin.plates.create', compact('plates','restaurateurs'));
     }
 
     /**
