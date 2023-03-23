@@ -34,25 +34,6 @@
                     </select>
                 </div>
                 <div class="form-group my-2">
-                    @foreach ($orders as $order)
-                    <div class="form-check @error('orders')
-                        is-invalid
-                    @enderror">
-                        @if ($errors->any())                    
-                        <input class="form-check-input" type="checkbox" value="{{ $order->id }}" name='orders[]' {{ in_array($order->id, old('orders', [])) ? 'checked' : '' }}>
-                        <label class="form-check-label">
-                            {{ $order->name }}
-                        </label>
-                        @else
-                        <input class="form-check-input" type="checkbox" value="{{ $order->id }}" name='orders[]' {{ $restaurateur->orders->contains($order) ? 'checked' : '' }}>
-                        <label class="form-check-label">
-                            {{ $order->name }}
-                        </label>
-                        @endif
-                    </div>                        
-                    @endforeach
-                </div>
-                <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="ingredienti">Ingredients</label>
                     <input type="text" class="form-control" name="ingredients" id="ingredienti" value="{{old('ingredients') ?? $restaurateur->ingredients}}" placeholder="Inserire Ingredienti">
                     @error('ingredients')
