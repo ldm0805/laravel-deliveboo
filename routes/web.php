@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController as DashboardController;
 use App\Http\Controllers\Admin\RestaurateurController as RestaurateurController;
 use App\Http\Controllers\Admin\PlateController as PlateController;
+use App\Http\Controllers\Admin\TypeController as TypeController;
 
 
 
@@ -31,6 +32,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('restaurateurs', RestaurateurController::class)->parameters(['restaurateurs' => 'restaurateur:slug']);
     Route::resource('plates', PlateController::class)->parameters(['plates' => 'plate:slug']);    
+    Route::resource('types', TypeController::class)->parameters(['types' => 'type:slug']);    
 });
 
 
