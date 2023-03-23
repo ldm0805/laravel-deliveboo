@@ -14,19 +14,19 @@ return new class extends Migration
     public function up()
     {
         Schema::table('plates', function (Blueprint $table) {
-            $table->unsignedBigInteger('restaurateur_id') 
-            ->nullable()
-            ->after('id');
+            $table->unsignedBigInteger('restaurateur_id')
+                ->nullable()
+                ->after('id');
             $table->foreign('restaurateur_id')
-            ->references('id') 
-            ->on('restaurateurs') 
-            ->onDelete('set null'); 
+                ->references('id')
+                ->on('restaurateurs')
+                ->onDelete('set null');
         });
     }
 
     /**
      * Reverse the migrations.
-     *
+     *aggiunto commento
      * @return void
      */
     public function down()
