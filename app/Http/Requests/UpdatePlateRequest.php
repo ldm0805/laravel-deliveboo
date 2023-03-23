@@ -28,6 +28,8 @@ class UpdatePlateRequest extends FormRequest
             'ingedients' => ['max:100'],
             'image' => ['required'],
             'price' => ['required', 'numeric', 'between:0,01.99'],
+            'visible' => ['required'],
+            'availability' => ['required']
     ];
     }
 }
