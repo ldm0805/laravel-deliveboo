@@ -1,5 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
 
+header.admin-header {
+	height: 80px;
+}
+
+.admin-vh-100 {
+	height: calc(100vh - 80px);
+
+	main, #sidebarMenu {
+		height: 100%;
+		overflow-y: auto;
+	}
+}
+
 .grid-container {
 	display: grid;
 	grid-template-columns: 20% 30% 30% auto;
