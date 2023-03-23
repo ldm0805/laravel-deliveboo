@@ -4,11 +4,11 @@
 <div class="text-white">
     <h4 class="mt-5">Ristorante: {{$plate->name}}.</h4>
     {!! $utils->displayImage($plate->image, $plate->name) !!}
-    <p>Email: {{$plate->ingredients}}</p>
+    <p>Ingredienti: {{$plate->ingredients}}</p>
     <p>Indirizzo: {{$plate->price}}</p>
-    <p>P. IVA: {{$plate->visible}}</p>
-    <p>P. IVA: {{$plate->avaiability}}</p>
-    <p>P. IVA: {{$plate->description}}</p>
+    <p>Visibilità: {{$plate->visible}}</p>
+    <p>Diponibilità: {{$plate->avaiability}}</p>
+    <p>Descrizione: {{$plate->description}}</p>
     
 
 </div>

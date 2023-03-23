@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@inject('utils', 'App\Utils\Utils')
 
 @section('content')
 <div class="container mt-5">
@@ -11,7 +12,7 @@
                     @endforeach                        
                 </ul>
             @endif
-            <form method="POST" action="{{route('admin.plates.update', $plate->slug)}}">
+            <form method="POST" action="{{route('admin.plates.update', $plate->slug)}}"  enctype="multipart/form-data">
                 @csrf 
 
                 @method('PUT')
@@ -44,7 +45,7 @@
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="prezzo">Price</label>
-                    <input type="text" class="form-control" name="price" id="prezzo" value="{{old('price') ?? $restaurateur->price}}" placeholder="Inserire Prezzo">
+                    <input type="number" class="form-control" name="price" id="prezzo" value="{{old('price') ?? $restaurateur->price}}" placeholder="Inserire Prezzo" step=".01" min="0" max="99.99">
                     @error('price')
                         <div class="mt-2 alert alert-danger">
                             {{ $message }}
@@ -53,12 +54,11 @@
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="visibile">Visible</label>                           
-                    <select class="d-block" name="availability" id="visibile">
-                        <option value="">Seleziona visibilità</option>                           
-                        @foreach ($plate as $plate)                                
-                        <option value="{{$plate->id}}" {{ $plate->id ? 'selected' : ''}}>{{$plate->visible}}</option>
-                        @endforeach  
-                    </select>                   
+                    <select class="d-block" name="visible" id="visibile">  
+                        <option value="">Seleziona disponibilità</option>
+                        <option value="0">no</option>       
+                        <option value="1">si</option>       
+                    </select>            
                     @error('availability')
                         <div class="mt-2 alert alert-danger">
                             {{ $message }}
@@ -67,12 +67,11 @@
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="disponibile">Disponibilità</label>
-                    <select class="d-block" name="availability" id="disponibile">
+                    <select class="d-block" name="availability" id="disponobile">
                         <option value="">Seleziona disponibilità</option>                           
-                        @foreach ($plate as $plate)                                
-                        <option value="{{$plate->id}}" {{ $plate->id ? 'selected' : ''}}>{{$plate->availability}}</option>
-                        @endforeach                    
-                    </select>                      
+                        <option value="0">no</option>                    
+                        <option value="1">si</option>                   
+                    </select>                    
                     @error('availability')
                         <div class="mt-2 alert alert-danger">
                             {{ $message }}
@@ -83,7 +82,7 @@
                     <label class="fs-2 fw-semibold" for="immagine">Image</label>
                     <input type="file" class="form-control" name="image" id="immagine"  placeholder="Inserire Immagine">
                     <div class="my-3">
-                        <img src="{{ asset('storage/' .$plate->image)}}">
+                        {!! $utils->displayImage($plate->image, $plate->name) !!}
                     </div>
                     @error('image')
                         <div class="mt-2 alert alert-danger">

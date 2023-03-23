@@ -27,7 +27,7 @@ class UpdatePlateRequest extends FormRequest
             'name' => ['required', 'max:100'],
             'ingedients' => ['max:100'],
             'image' => ['required'],
-            'price' => ['required', 'numeric', 'between:0,01.99'],
+            'price' => ['required', 'numeric', 'between:0,99.99'],
             'visible' => ['required'],
             'availability' => ['required']
     ];
