@@ -54,7 +54,7 @@ class PlateController extends Controller
         $form_data['slug'] = $slug;
 
         if($request->hasFile('image')){
-            $path = Storage::disk('public')->put('images_folder', $request->cover_image);
+            $path = Storage::disk('public')->put('images_folder', $request->image);
 
             $form_data['image'] = $path;
         }
@@ -85,7 +85,8 @@ class PlateController extends Controller
      */
     public function edit(Plate $plate)
     {
-        return view('admin.plates.edit', compact('plate'));
+        $restaurateurs = Restaurateur::all();
+        return view('admin.plates.edit', compact('plate','restaurateurs'));
     }
 
     /**
