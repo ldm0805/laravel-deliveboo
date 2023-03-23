@@ -26,18 +26,6 @@
                     </select>
                 </div>
                 <div class="form-group my-2">
-                    @foreach ($orders as $order)
-                    <div class="form-check @error('order')
-                        is-invalid
-                    @enderror">
-                        <input class="form-check-input" type="checkbox" value="{{ $order->id }}" name='orders[]'>
-                        <label class="form-check-label">
-                            {{ $order->name }}
-                        </label>
-                    </div>                        
-                    @endforeach
-                </div>
-                <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="ingredienti">Ingredients</label>
                     <input type="text" class="form-control" name="ingredients" id="ingredienti" placeholder="Inserire Ingredienti">
                     @error('ingredients')
