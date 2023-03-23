@@ -32,7 +32,9 @@ return new class extends Migration
     public function down()
     {
         Schema::table('plates', function (Blueprint $table) {
-            //
+            $table->dropForeign('plates_restaurateur_id_foreign');
+
+            $table->dropColumn('restaurateur_id');
         });
     }
 };
