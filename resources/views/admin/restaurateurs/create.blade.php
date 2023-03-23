@@ -4,7 +4,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-12">
-            <form method="POST" action="{{route('admin.restaurateurs.store')}}">
+            <form method="POST" action="{{route('admin.restaurateurs.store')}}" enctype="multipart/form-data">
                 @csrf 
 
                 <div class="form-group my-2">

@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@inject('utils', 'App\Utils\Utils')
 
 @section('content')
 <div class="container mt-5">
@@ -11,7 +12,7 @@
                     @endforeach                        
                 </ul>
             @endif
-            <form method="POST" action="{{route('admin.restaurateurs.update', $restaurateur->slug)}}">
+            <form method="POST" action="{{route('admin.restaurateurs.update', $restaurateur->slug)}}"  enctype="multipart/form-data">
                 @csrf 
 
                 @method('PUT')
@@ -72,9 +73,9 @@
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="immagine">Image</label>
-                    <input type="file" class="form-control" name="image" id="immagine"  placeholder="Inserire Image">
+                    <input type="file" class="form-control" name="image" id="image"  placeholder="Inserire Image">
                     <div class="my-3">
-                        <img src="{{ asset('storage/' .$restaurateur->image)}}">
+                        {!! $utils->displayImage($restaurateur->image, $restaurateur->name) !!}
                     </div>
                     @error('image')
                         <div class="mt-2 alert alert-danger">
