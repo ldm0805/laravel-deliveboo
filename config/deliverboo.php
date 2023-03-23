@@ -46,5 +46,15 @@ return [
         "availability" => true,
         "description" => "E' molto buona",
     ],
-    ]
+],
+    // 'types' => [
+    //     [
+    //         'Italiano', 
+    //         'Cinese', 
+    //         'Inglese', 
+    //         'Giapponese', 
+    //         'Indiano', 
+    //         'Internazionale'
+    //     ],
+    // ]
 ];
