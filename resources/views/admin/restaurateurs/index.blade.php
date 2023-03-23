@@ -28,7 +28,7 @@
 								 <form class="d-inline-block" action="{{route('admin.restaurateurs.destroy', $item->slug)}}" method="POST">
 									@csrf
 									@method('DELETE')
-									<button class="btn btn-sm text-white p-0" type="submit" title="Cancella restaurateurs">
+									<button class="btn btn-sm text-white p-0 confirm-delete" data-title="{{ $item->name }}" data-title="{{ $item->title }}" data-bs-toggle="modal" data-bs-target="#delete-modal" type="submit" title="Cancella restaurateurs">
 										<i class="fa-solid fa-dumpster-fire"></i>
 									</button>
 								</form> 
@@ -39,4 +39,6 @@
 			</div>
 		@endif
 	</div>
+	@include('admin.partials.modal_delete')
+
 @endsection
