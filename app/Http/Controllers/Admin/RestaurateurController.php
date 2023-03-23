@@ -53,7 +53,7 @@ class RestaurateurController extends Controller
         $form_data['slug'] = $slug;
 
         if($request->hasFile('image')){
-            $path = Storage::disk('public')->put('images_folder', $request->cover_image);
+            $path = Storage::disk('public')->put('images_folder', $request->image);
 
             $form_data['image'] = $path;
         }
