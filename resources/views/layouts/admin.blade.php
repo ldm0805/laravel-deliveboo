@@ -65,15 +65,15 @@
                                     <i class="fa-solid fa-square-plus fa-lg fa-fw"></i>
                                     Aggiungi un nuovo ristorante
                                 </a>
-                                  {{--<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.plates.index' ? 'bg-secondary' : '' }}" href="{{route('admin.plates.index')}}">
+                                  <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.plates.index' ? 'bg-secondary' : '' }}" href="{{route('admin.plates.index')}}">
                                     <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> 
                                     Piatti
                                 </a>
-                              <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.create' ? 'bg-secondary' : '' }}" href="{{route('admin.types.create')}}">
+                              <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.plates.create' ? 'bg-secondary' : '' }}" href="{{route('admin.plates.create')}}">
                                     <i class="fa-solid fa-square-plus fa-lg fa-fw"></i>
-                                    Aggiungi un nuovo livello di difficoltà
+                                    Aggiungi un nuovo piatto
                                 </a>
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.tags.index' ? 'bg-secondary' : '' }}" href="{{route('admin.tags.index')}}">
+                                {{--<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.tags.index' ? 'bg-secondary' : '' }}" href="{{route('admin.tags.index')}}">
                                     <i class="fa-solid fa-tag fa-lg fa-fw"></i>
                                     Tags
                                 </a>
