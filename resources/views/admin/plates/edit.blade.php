@@ -54,8 +54,10 @@
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="visibile">Visible</label>                           
                     <select class="d-block" name="availability" id="visibile">
-                        <option value="">Seleziona visible</option>                           
-                        <option value="{{old('visible') ?? $plates->id}}">{{$plates->visible}}</option>
+                        <option value="">Seleziona visibilità</option>                           
+                        @foreach ($plates as $plate)                                
+                        <option value="{{$plate->id}}" {{ $plate->id ? 'selected' : ''}}>{{$plate->visible}}</option>
+                        @endforeach  
                     </select>                   
                     @error('availability')
                         <div class="mt-2 alert alert-danger">
@@ -66,8 +68,10 @@
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="disponibile">Disponibilità</label>
                     <select class="d-block" name="availability" id="disponibile">
-                        <option value="">Seleziona visible</option>                           
-                        <option value="{{old('availability') ?? $plates->id}}">{{$plates->availability}}</option>
+                        <option value="">Seleziona disponibilità</option>                           
+                        @foreach ($plates as $plate)                                
+                        <option value="{{$plate->id}}" {{ $plate->id ? 'selected' : ''}}>{{$plate->availability}}</option>
+                        @endforeach                    
                     </select>                      
                     @error('availability')
                         <div class="mt-2 alert alert-danger">
