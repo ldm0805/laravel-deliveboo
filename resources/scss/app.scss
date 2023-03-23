@@ -2,7 +2,7 @@
 
 .grid-container {
 	display: grid;
-  	grid-template-columns: 20% 30% 30% auto;
+	grid-template-columns: 20% 30% 30% auto;
 	column-gap: 1em;
 }
 
@@ -11,13 +11,14 @@
 		display: grid;
 		grid-template-columns: 100%;
 		row-gap: 5px;
+
 		.t-row:hover {
 			background-color: $gray-800;
 		}
 	}
 }
 
-label{
+label {
 	color: white;
 	text-transform: capitalize;
 }

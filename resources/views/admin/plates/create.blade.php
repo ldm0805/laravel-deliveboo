@@ -17,7 +17,7 @@
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="ristorante">Ristorante</label>
-                    <select class="d-block" name="restaurateur_id" id="ristorante">
+                    <select class="d-block form-control" name="restaurateur_id" id="ristorante">
                         <option value="">Seleziona tipo</option>
                         @foreach ($restaurateurs as $restaurateur)                                
                         <option value="{{$restaurateur->id}}">{{$restaurateur->name}}</option>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="visibile">Visible</label>
-                    <select class="d-block" name="visible" id="visibile">  
+                    <select class="d-block form-control" name="visible" id="visibile">  
                         <option value="">Seleziona disponibilità</option>
                         <option value="0">no</option>      
                         <option value="1">si</option>      
@@ -57,7 +57,7 @@
                 </div>                
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="disponibile">Availability</label>
-                    <select class="d-block" name="availability" id="disponobile">
+                    <select class="d-block form-control" name="availability" id="disponobile">
                         <option value="">Seleziona disponibilità</option>                           
                         <option value="0">no</option>      
                         <option value="1">si</option>                
