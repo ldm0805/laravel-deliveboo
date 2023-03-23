@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div class="bg-dark vh-100"id="app">
 
 
         <nav class="navbar navbar-expand-md navbar-light bg-dark text-white shadow-sm">
@@ -85,7 +85,7 @@
             </div>
         </nav>
 
-        <main class="">
+        <main class="bg-dark">
             @yield('content')
         </main>
     </div>
