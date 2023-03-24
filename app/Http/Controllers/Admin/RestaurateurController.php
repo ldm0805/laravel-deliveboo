@@ -58,9 +58,10 @@ class RestaurateurController extends Controller
             $form_data['image'] = $path;
         }
 
-        $newRestaurateur->fill($form_data);
+        // $newRestaurateur->fill($form_data);
 
-        $newRestaurateur->save();
+        // $newRestaurateur->save();
+        $newRestaurateur = Restaurateur::create($form_data);
 
         if($request->has('types')){
             $newRestaurateur->types()->attach($request->types);
