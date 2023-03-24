@@ -27,47 +27,33 @@
                     @enderror
                 </div>
                 <label class="fs-2 my-1 fw-semibold" for="nome">Cucina:</label>
-                <div class="form-group my-2">
+                <div class="form-group my-2 d-flex flex-wrap m-2">
                     @foreach ($types as $type)
-                    <div class="form-check @error('technologies')
+                    <div class="form-check @error('types')
                         is-invalid
                     @enderror">
-                        @if ($errors->any())                    
-                        <input class="form-check-input" type="checkbox" value="{{ $type->id }}" name='types[]' {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
-                        <label class="form-check-label">
-                            {{ $type->name }}
-                        </label>
+                        @if ($errors->any())       
+                        <div class="m-2">
+                            <input class="form-check-input" type="checkbox" value="{{ $type->id }}" name='types[]' {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label">
+                                {{ $type->name }}
+                            </label>                            
+                        </div>             
                         @else
-                        <input class="form-check-input" type="checkbox" value="{{ $type->id }}" name='types[]' {{ $restaurateur->types->contains($type) ? 'checked' : '' }}>
-                        <label class="form-check-label">
-                            {{ $type->name }}
-                        </label>
+                        <div class="m-2">
+                            <input class="form-check-input" type="checkbox" value="{{ $type->id }}" name='types[]' {{ $restaurateur->types->contains($type) ? 'checked' : '' }}>
+                            <label class="form-check-label">
+                                {{ $type->name }}
+                            </label>
+                        </div>
                         @endif
                     </div>                        
                     @endforeach
                 </div>
                 <div class="form-group my-2">
-                    <label class="fs-2 my-1 fw-semibold" for="mail">Email</label>
-                    <input type="email" class="form-control" name="email" id="mail" value="{{old('email') ?? $restaurateur->email}}" placeholder="Inserire Email">
-                    @error('email')
-                        <div class="mt-2 alert alert-danger">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <div class="form-group my-2">
                     <label class="fs-2 my-1 fw-semibold" for="indirizzo">Indirizzo</label>
                     <input type="text" class="form-control" name="address" id="indirizzo" value="{{old('address') ?? $restaurateur->address}}" placeholder="Inserire Indirizzo">
                     @error('address')
-                        <div class="mt-2 alert alert-danger">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <div class="form-group my-2">
-                    <label class="fs-2 my-1 fw-semibold" for="iva">Partita Iva</label>
-                    <input type="text" class="form-control" name="p_iva" id="iva" value="{{old('p_iva') ?? $restaurateur->p_iva}}" placeholder="Inserire P_iva">
-                    @error('p_iva')
                         <div class="mt-2 alert alert-danger">
                             {{ $message }}
                         </div>
