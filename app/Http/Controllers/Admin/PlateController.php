@@ -37,7 +37,8 @@ class PlateController extends Controller
     {
         $plates = Plate::all();
 
-        $restaurateurs = Restaurateur::all();
+        $user = Auth::user();
+        $restaurateurs = Restaurateur::where('user_id', $user->id)->get();
         return view('admin.plates.create', compact('plates','restaurateurs'));
     }
 
@@ -93,7 +94,8 @@ class PlateController extends Controller
      */
     public function edit(Plate $plate)
     {
-        $restaurateurs = Restaurateur::all();
+        $user = Auth::user();
+        $restaurateurs = Restaurateur::where('user_id', $user->id)->get();
         return view('admin.plates.edit', compact('plate','restaurateurs'));
     }
 
