@@ -16,7 +16,7 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        $types = ['Italiano', 'Cinese', 'Inglese', 'Giapponese', 'Indiano', 'Internazionale', 'Messicano', 'Spagnolo', 'Francese', 'Greco', 'Turco', 'Libanese', 'Marocchino', 'Coreano', 'Thailandese', 'Vietnamita', 'Brasiliano', 'Argentino', 'Peruviano', 'Colombiano', 'Venezuelano', 'Sudafricano', 'Etiopico', 'Egiziano', 'Russo', 'Tedesco', 'Olandese', 'Belga', 'Svizzero', 'Austriaco', 'Polacco', 'Svedese', 'Norvegese', 'Danese'];
+        $types = ['Italiano', 'Cinese', 'Inglese', 'Giapponese', 'Indiano', 'Internazionale', 'Messicano'];
 
         foreach($types as $type){
             $newType = new Type();

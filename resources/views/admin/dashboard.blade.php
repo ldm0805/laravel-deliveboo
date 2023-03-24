@@ -9,6 +9,9 @@
             <div class="card">
                 <div class="card-header">{{ __('User Dashboard') }}</div>
                 <div class="card-body">
+                    @foreach($current_user as $user)
+                        <div>ciao {{$user['email']}}</div>
+                    @endforeach
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}

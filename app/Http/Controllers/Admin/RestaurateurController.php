@@ -52,13 +52,15 @@ class RestaurateurController extends Controller
 
         $user = Auth::user();
 
+
         $newRestaurateur = new Restaurateur();
 
         $slug = Restaurateur::generateSlug($form_data['name']);
 
         $form_data['slug'] = $slug;
         $form_data['user_id'] = $user->id;
-
+        $form_data['email'] = $user->email;
+        $form_data['p_iva'] = $user->p_iva;
 
         if($request->hasFile('image')){
             $path = Storage::disk('public')->put('images_folder', $request->image);

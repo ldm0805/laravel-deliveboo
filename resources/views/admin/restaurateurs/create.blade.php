@@ -24,43 +24,27 @@
                         </div>
                     @enderror
                 </div>
-                <div class="form-group my-2">
-                    <label class="fs-2 my-1 fw-semibold">
-                        Cucina:
-                    </label>
+                <label class="fs-2 my-1 fw-semibold">
+                    Cucina:
+                </label>
+                <div class="form-group d-flex flex-wrap m-2">
                     @foreach ($types as $type)
                     <div class="form-check @error('types')
                         is-invalid
                     @enderror">
+                    <div class="m-2">
                         <input class="form-check-input" type="checkbox" value="{{ $type->id }}" name='types[]'>
                         <label class="form-check-label">
                             {{ $type->name }}
                         </label>
+                    </div>
                     </div>                        
                     @endforeach
-                </div>
-                <div class="form-group my-2">
-                    <label class="fs-2 my-1 fw-semibold" for="mail">Email</label>
-                    <input type="email" class="form-control" name="email" id="mail" placeholder="Inserire Email">
-                    @error('email')
-                        <div class="mt-2 alert alert-danger">
-                            {{ $message }}
-                        </div>
-                    @enderror
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 my-1 fw-semibold" for="indirizzo">Indirizzo</label>
                     <input type="text" class="form-control" name="address" id="indirizzo" placeholder="Inserire Indirizzo">
                     @error('address')
-                        <div class="mt-2 alert alert-danger">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <div class="form-group my-2">
-                    <label class="fs-2 my-1 fw-semibold" for="iva">Partiva Iva</label>
-                    <input type="text" class="form-control" name="p_iva" id="iva" placeholder="Inserire P_iva">
-                    @error('p_iva')
                         <div class="mt-2 alert alert-danger">
                             {{ $message }}
                         </div>
