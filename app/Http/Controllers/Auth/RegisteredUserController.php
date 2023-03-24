@@ -42,7 +42,7 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'address' => ['required', 'max:100'],
-            'p_iva'=> ['required', 'max:11']
+            'p_iva'=> ['required', 'size:11']
             
         ]);
 
@@ -57,10 +57,6 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
-
-
-
-
         $user = Auth::user();
 
         $newRestaurateur = new Restaurateur();
