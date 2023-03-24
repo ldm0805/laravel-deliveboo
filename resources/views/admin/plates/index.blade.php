@@ -1,7 +1,12 @@
 @extends('layouts.admin')
 @section('content')
 	<div class="text-white py-5">
-		<h1>RISTORATORI</h1>
+		<div class="d-flex justify-content-between align-items-center">
+			<h1>PIATTI</h1>
+			<a href="{{route('admin.plates.create') }}" class="btn btn-success">
+				<i class="fa-solid fa-square-plus fa-lg fa-fw"></i> Aggiungi un nuovo piatto
+			</a>
+		</div>
 
 		@if ($plates->isEmpty())
 			no plates, click here to add one
