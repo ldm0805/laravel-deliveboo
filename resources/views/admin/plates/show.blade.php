@@ -3,7 +3,9 @@
 @section('content')
 <div class="text-white">
     <h4 class="mt-5">Ristorante: {{$plate->name}}.</h4>
-    {!! $utils->displayImage($plate->image, $plate->name) !!}
+    <div class="my-3 image-size">
+        {!! $utils->displayImage($plate->image, $plate->name) !!}
+    </div>
     <p>Ingredienti: {{$plate->ingredients}}</p>
     <p>Indirizzo: {{$plate->price}}</p>
     <p>Visibilità:

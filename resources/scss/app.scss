@@ -47,3 +47,10 @@ label {
 	color: white;
 	text-transform: capitalize;
 }
+
+.image-size {
+	width: 300px;
+	height: 300px;
+	object-fit: cover;
+
+}

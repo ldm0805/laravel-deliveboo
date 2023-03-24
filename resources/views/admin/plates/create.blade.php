@@ -15,7 +15,7 @@
             <form method="POST" action="{{route('admin.plates.store')}}"  enctype="multipart/form-data">
                 @csrf 
                 <div class="form-group my-2">
-                    <label class="fs-2 fw-semibold" for="nome">Name</label>
+                    <label class="fs-2 my-1 fw-semibold" for="nome">Nome</label>
                     <input type="text" class="form-control" name="name" id="nome" placeholder="Inserire Nome">
                     @error('name')
                         <div class="mt-2 alert alert-danger">
@@ -24,8 +24,8 @@
                     @enderror
                 </div>
                 <div class="form-group my-2">
-                    <label class="fs-2 fw-semibold" for="ristorante">Ristorante</label>
-                    <select class="d-block form-control" name="restaurateur_id" id="ristorante">
+                    <label class="fs-2 my-1 fw-semibold" for="ristorante">Ristorante</label>
+                    <select class="d-block form-control" name="restaurateur_id" id="restaurateur_id">
                         <option value="">Seleziona tipo</option>
                         @foreach ($restaurateurs as $restaurateur)                                
                         <option value="{{$restaurateur->id}}">{{$restaurateur->name}}</option>
@@ -33,7 +33,7 @@
                     </select>
                 </div>
                 <div class="form-group my-2">
-                    <label class="fs-2 fw-semibold" for="ingredienti">Ingredienti</label>
+                    <label class="fs-2 my-1 fw-semibold" for="ingredienti">Ingredienti</label>
                     <input type="text" class="form-control" name="ingredients" id="ingredienti" placeholder="Inserire Ingredienti">
                     @error('ingredients')
                         <div class="mt-2 alert alert-danger">
@@ -42,7 +42,7 @@
                     @enderror
                 </div>
                 <div class="form-group my-2">
-                    <label class="fs-2 fw-semibold" for="prezzo">Prezzo</label>
+                    <label class="fs-2 my-1 fw-semibold" for="prezzo">Prezzo</label>
                     <input type="number" class="form-control" name="price" id="prezzo" placeholder="Inserire Prezzo" step=".01" min="0" max="99.99">
                     @error('price')
                         <div class="mt-2 alert alert-danger">
@@ -51,7 +51,7 @@
                     @enderror
                 </div>
                 <div class="form-group my-2">
-                    <label class="fs-2 fw-semibold" for="visibile">Visible</label>
+                    <label class="fs-2 my-1 fw-semibold" for="visibile">Visibilità</label>
                     <select class="d-block form-control" name="visible" id="visibile">  
                         <option value="">Seleziona disponibilità</option>
                         <option value="0">no</option>      
@@ -64,7 +64,7 @@
                     @enderror
                 </div>                
                 <div class="form-group my-2">
-                    <label class="fs-2 fw-semibold" for="disponibile">Availability</label>
+                    <label class="fs-2 my-1 fw-semibold" for="disponibile">Disponibilità</label>
                     <select class="d-block form-control" name="availability" id="disponobile">
                         <option value="">Seleziona disponibilità</option>                           
                         <option value="0">no</option>      
@@ -77,7 +77,7 @@
                     @enderror
                 </div>
                 <div class="form-group my-2">
-                    <label class="fs-2 fw-semibold" for="immagine">Image</label>
+                    <label class="fs-2 my-1 fw-semibold" for="immagine">Immagine</label>
                     <input type="file" class="form-control" name="image" id="immagine" placeholder="Inserire Immagine">
                     @error('image')
                         <div class="mt-2 alert alert-danger">
@@ -85,7 +85,13 @@
                         </div>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-success">Salva</button>
+                <div class="form-group mb-3">
+                    <label class="control-label mb-2">
+                        Contenuto
+                    </label>
+                    <textarea type="text-area" class="form-control" placeholder="Descrizione" id="description" name="description"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success my-4">Salva</button>
             </form>
         </div>
     </div>

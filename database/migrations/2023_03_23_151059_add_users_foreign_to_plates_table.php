@@ -14,27 +14,23 @@ return new class extends Migration
     public function up()
     {
         Schema::table('plates', function (Blueprint $table) {
-            $table->unsignedBigInteger('restaurateur_id')
-                ->nullable()
-                ->after('id');
-            $table->foreign('restaurateur_id')
-                ->references('id')
-                ->on('restaurateurs')
-                ->onDelete('set null');
+            $table->unsignedBigInteger('user_id')->nullable()->after('id');
+    
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 
     /**
      * Reverse the migrations.
-     *aggiunto commento
+     *
      * @return void
      */
     public function down()
     {
         Schema::table('plates', function (Blueprint $table) {
-            $table->dropForeign('plates_restaurateur_id_foreign');
+            $table->dropForeign('plates_user_id_foreign');
+            $table->dropColumn('user_id');
 
-            $table->dropColumn('restaurateur_id');
         });
     }
 };

@@ -13,13 +13,6 @@
     </div>
     <div class="row">
         <div class="col-12">
-            @if ($errors->any())
-                <ul class="alert alert-danger list-unstyled">
-                    @foreach ($errors->all() as $error)
-                        <li>{{$error}}</li>
-                    @endforeach                        
-                </ul>
-            @endif
             <form method="POST" action="{{route('admin.plates.update', $plate->slug)}}"  enctype="multipart/form-data">
                 @csrf 
 
@@ -89,7 +82,7 @@
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="immagine">Image</label>
                     <input type="file" class="form-control" name="image" id="immagine"  placeholder="Inserire Immagine">
-                    <div class="my-3">
+                    <div class="my-3 image-size">
                         {!! $utils->displayImage($plate->image, $plate->name) !!}
                     </div>
                     @error('image')
@@ -97,6 +90,12 @@
                             {{ $message }}
                         </div>
                     @enderror
+                </div>
+                <div class="form-group mb-3">
+                    <label class="control-label mb-2">
+                        Descrizione
+                    </label>
+                    <textarea type="text-area" class="form-control" placeholder="Descrizione" id="description" name="description">{{old('description') ?? $plate->description}}</textarea>
                 </div>
                 <button type="submit" class="btn btn-success">Salva</button>
             </form>

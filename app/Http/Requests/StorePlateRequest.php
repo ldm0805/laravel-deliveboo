@@ -27,19 +27,27 @@ class StorePlateRequest extends FormRequest
            'name' => ['required', 'max:100', 'unique:plates'],
            'ingredients' => ['max:100'],
            'image' => ['required'],
-           'price' => ['required'],
+           'price' => ['required', 'numeric', 'between:0,99.99'],
            'visible' => ['required'],
-           'availability' => ['required']
+           'availability' => ['required'],
+           'description' => ['nullable'],
+           'restaurateur_id' => ['required']
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'Il nome è obbligatorio',
-            'ingredients.max' => 'Ingredienti è troppo lungo',
-            'price.required' => 'Il prezzo è obbligatorio',
-            'image.required' => "L'immagine è obbligatoria"
+            'name.required'   => 'Il nome è obbligatorio',
+            'name.max'        => 'Nome troppo lungo! Inserisci al massimo :max caratteri',
+            'name.unique'     => 'Il nome è già presente',
+            'ingredients.max' => 'Ingredienti troppo lungo! Inserisci al massimo :max caratteri',
+            'image.required'  => "L'immagine è obbligatoria",
+            'price.required'  => 'Il prezzo è obbligatorio',
+            'price.numeric'  => 'Il prezzo deve essere composto solo da numeri',
+            'price.between'  => 'Il prezzo deve essere compreso tra 0,99 e 99',
+            'visible.required' => 'La visibilità del piatto è obbligatoria',
+            'availability.required' => 'La disponibilità del piatto è obbligatorio',
         ];
     }
 }
