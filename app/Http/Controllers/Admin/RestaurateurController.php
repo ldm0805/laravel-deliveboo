@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 use App\Models\Type; 
+use App\Models\User;
 
 
 class RestaurateurController extends Controller

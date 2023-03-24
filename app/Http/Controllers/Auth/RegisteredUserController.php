@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
+
+use App\Models\Type; 
+use App\Models\Restaurateur;
+use App\Http\Requests\StoreRestaurateurRequest;
+use Illuminate\Support\Facades\Storage;
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -20,7 +26,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $types = Type::all();
+        return view('auth.register', compact('types'));
     }
 
     /**
@@ -34,17 +41,58 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'address' => ['required', 'max:100'],
+            'p_iva'=> ['required', 'max:11']
+            
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'address' => $request->address,
+            'p_iva' => $request->p_iva,
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
+
+
+
+
+        $user = Auth::user();
+
+        $newRestaurateur = new Restaurateur();
+
+        
+        $form_data['p_iva'] = $user['p_iva'];
+        $form_data['address'] = $user['address'];
+        $form_data['name'] = $user['name'];
+        $form_data['email'] = $user['email'];
+        $form_data['user_id'] = $user['id'];
+        
+        $slug = Restaurateur::generateSlug($form_data['name']);
+
+        $form_data['slug'] = $slug;
+        $form_data['user_id'] = $user->id;
+
+        if($request->hasFile('image')){
+            $path = Storage::disk('public')->put('images_folder', $request->image);
+
+            $form_data['image'] = $path;
+        }
+
+        // $newRestaurateur->fill($form_data);
+
+        // $newRestaurateur->save();
+        $newRestaurateur = Restaurateur::create($form_data);
+
+        if($request->has('types')){
+            $newRestaurateur->types()->attach($request->types);
+        }
+
+
 
         return redirect(RouteServiceProvider::HOME);
     }
