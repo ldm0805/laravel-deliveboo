@@ -10,8 +10,8 @@
 
 		@if ($restaurateurs->isEmpty())
 			<div class="d-flex align-items-center justify-content-center">
-				<div class="alert alert-warning text-center m-0" role="alert">
-					no restaurateurs, <a href="{{route('admin.restaurateurs.create') }}">click here</a> to add one
+				<div class="alert border border-white text-center m-0" role="alert">
+					nessun ristorante, <a href="{{route('admin.restaurateurs.create') }}">clicca qui</a> per aggiungerne uno
 				</div>
 			</div>
 		@else

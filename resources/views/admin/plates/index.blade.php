@@ -10,8 +10,8 @@
 
 		@if ($plates->isEmpty())
 		<div class="d-flex align-items-center justify-content-center">
-			<div class="alert alert-warning text-center m-0" role="alert">
-				no plates, <a href="{{route('admin.plates.create') }}">click here</a> to add one
+			<div class="alert border border white text-center m-0" role="alert">
+				nessun piatto, <a href="{{route('admin.plates.create') }}">clicca qui</a> per aggiungerne uno
 			</div>
 		</div>
 		
