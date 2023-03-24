@@ -17,6 +17,7 @@
                 @csrf 
 
                 @method('PUT')
+                
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="nome">Name</label>
                     <input type="text" class="form-control" name="name" id="nome"  value="{{old('name') ?? $plate->name}}" placeholder="Inserire Nome">
