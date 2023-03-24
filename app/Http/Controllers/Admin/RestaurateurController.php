@@ -59,8 +59,6 @@ class RestaurateurController extends Controller
 
         $form_data['slug'] = $slug;
         $form_data['user_id'] = $user->id;
-        $form_data['email'] = $user->email;
-        $form_data['p_iva'] = $user->p_iva;
 
         if($request->hasFile('image')){
             $path = Storage::disk('public')->put('images_folder', $request->image);
@@ -125,9 +123,15 @@ class RestaurateurController extends Controller
              
              $path = Storage::disk('public')->put('images_folder', $request->image);
              $form_data['image'] = $path;
-         }
+        }
+
+        $restaurateur->fill($form_data);
 
         $restaurateur->update($form_data);
+
+        if($request->has('types')){
+            $restaurateur->types()->sync($request->types);
+        }
  
         
         return redirect()->route('admin.restaurateurs.index')->with('message', 'La modifica del è andata a buon fine.');
