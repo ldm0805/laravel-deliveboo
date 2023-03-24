@@ -9,7 +9,12 @@
 		</div>
 
 		@if ($plates->isEmpty())
-			no plates, click here to add one
+		<div class="d-flex align-items-center justify-content-center">
+			<div class="alert border border white text-center m-0" role="alert">
+				nessun piatto, <a href="{{route('admin.plates.create') }}">clicca qui</a> per aggiungerne uno
+			</div>
+		</div>
+		
 		@else
 			<div class="plates-table">
 				{{-- t-head --}}

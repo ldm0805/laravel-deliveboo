@@ -9,7 +9,11 @@
 		</div>
 
 		@if ($restaurateurs->isEmpty())
-			no restaurateurs, click here to add one
+			<div class="d-flex align-items-center justify-content-center">
+				<div class="alert border border-white text-center m-0" role="alert">
+					nessun ristorante, <a href="{{route('admin.restaurateurs.create') }}">clicca qui</a> per aggiungerne uno
+				</div>
+			</div>
 		@else
 			<div class="restaurateurs-table">
 				{{-- t-head --}}
