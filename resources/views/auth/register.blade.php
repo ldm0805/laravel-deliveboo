@@ -60,63 +60,40 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        
+                        <div class="mb-4 row">
+                            <label class="col-md-4 col-form-label text-md-right" for="iva">Partiva Iva</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="p_iva" id="p_iva">
+                                @error('p_iva')
+                                <div class="mt-2 alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            </div>
+                            @enderror
+                        </div>   
 
-
-
-
-<!--                 <div class="form-group my-2">
-                    <label class="fs-2 my-1 fw-semibold">
-                        Cucina:
-                    </label>
-                    @foreach ($types as $type)
-                    <div class="form-check @error('types')
-                        is-invalid
-                    @enderror">
-                        <input class="form-check-input" type="checkbox" value="{{ $type->id }}" name='types[]'>
-                        <label class="form-check-label">
-                            {{ $type->name }}
-                        </label>
-                    </div>                        
-                    @endforeach
-                </div> -->
-
-                <div class="form-group my-2">
-                    <label class="fs-2 my-1 fw-semibold" for="indirizzo">Indirizzo</label>
-                    <input type="text" class="form-control" name="address" id="indirizzo" placeholder="Inserire Indirizzo">
-                    @error('address')
-                        <div class="mt-2 alert alert-danger">
-                            {{ $message }}
+                        <div class="mb-4 row">
+                            <label class="col-md-4 col-form-label text-md-right" for="indirizzo">Indirizzo</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="address" id="indirizzo">
+                                @error('address')
+                                <div class="mt-2 alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            </div>
+                            @enderror
                         </div>
-                    @enderror
-                </div>
-                <div class="form-group my-2">
-                    <label class="fs-2 my-1 fw-semibold" for="iva">Partiva Iva</label>
-                    <input type="text" class="form-control" name="p_iva" id="iva" placeholder="Inserire P_iva">
-                    @error('p_iva')
-                        <div class="mt-2 alert alert-danger">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
 
- 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                <div class="mb-4 row mb-0">
-                    <div class="col-md-6 offset-md-4">
-                        <button type="submit" class="btn btn-primary">
-                            invio
-                        </button>
-                    </div>
-                </div>
-            </form>
+                      
+                        <div class="mb-4 row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    invio
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
