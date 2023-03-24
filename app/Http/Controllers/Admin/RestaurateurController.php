@@ -7,6 +7,8 @@ use App\Http\Requests\StoreRestaurateurRequest;
 use App\Http\Requests\UpdateRestaurateurRequest;
 use App\Http\Controllers\Controller; //NECESSARIO 
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 use App\Models\Type; 
 
@@ -20,7 +22,8 @@ class RestaurateurController extends Controller
      */
     public function index()
     {
-        $restaurateurs = Restaurateur::all();
+        $user = Auth::user();
+        $restaurateurs = Restaurateur::where('user_id', $user->id)->get();
 
         return view('admin.restaurateurs.index', compact('restaurateurs'));
     }
@@ -46,11 +49,15 @@ class RestaurateurController extends Controller
     {
         $form_data = $request->validated();
 
+        $user = Auth::user();
+
         $newRestaurateur = new Restaurateur();
 
         $slug = Restaurateur::generateSlug($form_data['name']);
 
         $form_data['slug'] = $slug;
+        $form_data['user_id'] = $user->id;
+
 
         if($request->hasFile('image')){
             $path = Storage::disk('public')->put('images_folder', $request->image);
