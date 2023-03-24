@@ -3,6 +3,14 @@
 
 @section('content')
 <div class="container mt-5">
+    <div class="row text-white">
+        <div class="d-flex justify-content-between align-items-center">
+			<h1>MODIFICA PIATTO</h1>
+			<a href="{{route('admin.plates.index') }}" class="btn btn-secondary">
+				<i class="fa-solid fa-arrow-left fa-lg fa-fw"></i> Torna ai piatti
+			</a>
+		</div>
+    </div>
     <div class="row">
         <div class="col-12">
             <form method="POST" action="{{route('admin.plates.update', $plate->slug)}}"  enctype="multipart/form-data">
