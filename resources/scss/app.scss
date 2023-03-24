@@ -15,6 +15,10 @@ header.admin-header {
 
 #sidebarMenu {
 	ul {
+		display: grid;
+		grid-template-columns: auto;
+		row-gap: 0.5em;
+
 		li.nav-item:hover {
 			background-color: $gray-800;
 		}
