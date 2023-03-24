@@ -20,7 +20,7 @@
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="tipo">Tipo</label>
-                    <select class="d-block" name="restaurateur_id" id="tipo">
+                    <select class="d-block form-select" name="restaurateur_id" id="tipo">
                         <option value="">Seleziona tipo</option>
                         @foreach ($restaurateurs as $restaurateur)                                
                         <option value="{{$restaurateur->id}}" {{ $restaurateur->id == old('restaurateur_id', $plate->restaurateur_id) ? 'selected' : ''}}>{{$restaurateur->name}}</option>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="visibile">Visible</label>                           
-                    <select class="d-block" name="visible" id="visibile">  
+                    <select class="d-block form-select" name="visible" id="visibile">  
                         <option value="">Seleziona disponibilità</option>
                         <option value="0">no</option>       
                         <option value="1">si</option>       
@@ -60,7 +60,7 @@
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="disponibile">Disponibilità</label>
-                    <select class="d-block" name="availability" id="disponobile">
+                    <select class="d-block form-select" name="availability" id="disponobile">
                         <option value="">Seleziona disponibilità</option>                           
                         <option value="0">no</option>                    
                         <option value="1">si</option>                   
@@ -82,6 +82,12 @@
                             {{ $message }}
                         </div>
                     @enderror
+                </div>
+                <div class="form-group mb-3">
+                    <label class="control-label mb-2">
+                        Descrizione
+                    </label>
+                    <textarea type="text-area" class="form-control" placeholder="Descrizione" id="description" name="description">{{old('description') ?? $plate->description}}</textarea>
                 </div>
                 <button type="submit" class="btn btn-success">Salva</button>
             </form>

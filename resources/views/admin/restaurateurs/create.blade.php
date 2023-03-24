@@ -8,7 +8,7 @@
                 @csrf 
 
                 <div class="form-group my-2">
-                    <label class="fs-2 fw-semibold" for="nome">Name</label>
+                    <label class="fs-2 my-1 fw-semibold" for="nome">Nome</label>
                     <input type="text" class="form-control" name="name" id="nome" placeholder="Inserire Nome">
                     @error('name')
                         <div class="mt-2 alert alert-danger">
@@ -17,6 +17,9 @@
                     @enderror
                 </div>
                 <div class="form-group my-2">
+                    <label class="fs-2 my-1 fw-semibold">
+                        Cucina:
+                    </label>
                     @foreach ($types as $type)
                     <div class="form-check @error('types')
                         is-invalid
@@ -29,7 +32,7 @@
                     @endforeach
                 </div>
                 <div class="form-group my-2">
-                    <label class="fs-2 fw-semibold" for="mail">email</label>
+                    <label class="fs-2 my-1 fw-semibold" for="mail">Email</label>
                     <input type="email" class="form-control" name="email" id="mail" placeholder="Inserire Email">
                     @error('email')
                         <div class="mt-2 alert alert-danger">
@@ -38,7 +41,7 @@
                     @enderror
                 </div>
                 <div class="form-group my-2">
-                    <label class="fs-2 fw-semibold" for="indirizzo">address</label>
+                    <label class="fs-2 my-1 fw-semibold" for="indirizzo">Indirizzo</label>
                     <input type="text" class="form-control" name="address" id="indirizzo" placeholder="Inserire Indirizzo">
                     @error('address')
                         <div class="mt-2 alert alert-danger">
@@ -47,7 +50,7 @@
                     @enderror
                 </div>
                 <div class="form-group my-2">
-                    <label class="fs-2 fw-semibold" for="iva">p_iva</label>
+                    <label class="fs-2 my-1 fw-semibold" for="iva">Partiva Iva</label>
                     <input type="text" class="form-control" name="p_iva" id="iva" placeholder="Inserire P_iva">
                     @error('p_iva')
                         <div class="mt-2 alert alert-danger">
@@ -56,7 +59,7 @@
                     @enderror
                 </div>
                 <div class="form-group my-2">
-                    <label class="fs-2 fw-semibold" for="immagine">image</label>
+                    <label class="fs-2 my-1 fw-semibold" for="immagine">Immagine</label>
                     <input type="file" class="form-control" name="image" id="immagine" placeholder="Inserire Image">
                     @error('image')
                         <div class="mt-2 alert alert-danger">
@@ -64,7 +67,7 @@
                         </div>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-success">Salva</button>
+                <button type="submit" class="btn btn-success my-4">Salva</button>
             </form>
         </div>
     </div>
