@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container mt-5">
+    <div class="row text-white">
+        <div class="d-flex justify-content-between align-items-center">
+			<h1>AGGIUNGI RISTORATORE</h1>
+			<a href="{{route('admin.restaurateurs.index') }}" class="btn btn-secondary">
+				<i class="fa-solid fa-arrow-left fa-lg fa-fw"></i> Torna ai ristoranti
+			</a>
+		</div>
+    </div>
     <div class="row">
         <div class="col-12">
             <form method="POST" action="{{route('admin.restaurateurs.store')}}" enctype="multipart/form-data">
