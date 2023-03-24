@@ -66,10 +66,8 @@ class RegisteredUserController extends Controller
         $newRestaurateur = new Restaurateur();
 
         
-        $form_data['p_iva'] = $user['p_iva'];
         $form_data['address'] = $user['address'];
         $form_data['name'] = $user['name'];
-        $form_data['email'] = $user['email'];
         $form_data['user_id'] = $user['id'];
         
         $slug = Restaurateur::generateSlug($form_data['name']);
