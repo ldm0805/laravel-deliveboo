@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="ingredienti">Ingredients</label>
-                    <input type="text" class="form-control" name="ingredients" id="ingredienti" value="{{old('ingredients') ?? $restaurateur->ingredients}}" placeholder="Inserire Ingredienti">
+                    <input type="text" class="form-control" name="ingredients" id="ingredienti" value="{{old('ingredients') ?? $plate->ingredients}}" placeholder="Inserire Ingredienti">
                     @error('ingredients')
                         <div class="mt-2 alert alert-danger">
                             {{ $message }}
@@ -47,7 +47,7 @@
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="prezzo">Price</label>
-                    <input type="number" class="form-control" name="price" id="prezzo" value="{{old('price') ?? $restaurateur->price}}" placeholder="Inserire Prezzo" step=".01" min="0" max="99.99">
+                    <input type="number" class="form-control" name="price" id="prezzo" value="{{old('price') ?? $plate->price}}" placeholder="Inserire Prezzo" step=".01" min="0" max="99.99">
                     @error('price')
                         <div class="mt-2 alert alert-danger">
                             {{ $message }}
@@ -58,8 +58,8 @@
                     <label class="fs-2 fw-semibold" for="visibile">Visible</label>                           
                     <select class="d-block form-select" name="visible" id="visibile">  
                         <option value="">Seleziona disponibilità</option>
-                        <option value="0">no</option>       
-                        <option value="1">si</option>       
+                        <option value="0" {{ 0 == old('visible', $plate->visible) ? 'selected' : ''}}>no</option> 
+                        <option value="1" {{ 1 == old('visible', $plate->visible) ? 'selected' : ''}}>si</option>          
                     </select>            
                     @error('availability')
                         <div class="mt-2 alert alert-danger">
@@ -71,8 +71,8 @@
                     <label class="fs-2 fw-semibold" for="disponibile">Disponibilità</label>
                     <select class="d-block form-select" name="availability" id="disponobile">
                         <option value="">Seleziona disponibilità</option>                           
-                        <option value="0">no</option>                    
-                        <option value="1">si</option>                   
+                        <option value="0" {{ 0 == old('availability', $plate->availability) ? 'selected' : ''}}>no</option> 
+                        <option value="1" {{ 1 == old('availability', $plate->availability) ? 'selected' : ''}}>si</option>                                      
                     </select>                    
                     @error('availability')
                         <div class="mt-2 alert alert-danger">
