@@ -74,7 +74,7 @@
                 <div class="form-group my-2">
                     <label class="fs-2 fw-semibold" for="immagine">Image</label>
                     <input type="file" class="form-control" name="image" id="immagine"  placeholder="Inserire Immagine">
-                    <div class="my-3">
+                    <div class="my-3 image-size">
                         {!! $utils->displayImage($plate->image, $plate->name) !!}
                     </div>
                     @error('image')
