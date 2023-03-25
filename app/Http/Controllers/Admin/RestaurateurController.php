@@ -47,13 +47,20 @@ class RestaurateurController extends Controller
      * @param  \App\Http\Requests\StoreRestaurateurRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, )
     {
-        $form_data = $request->all();
+        // $form_data = $request->all();
+        $form_data = $request->validate([
+            'name' => ['required'],
+            'address' => ['required'],
+            'image' => ['nullable'],
 
-        
+        ],[
+            'name.required' => 'Il nome è richiesto',
+            'address.required' => 'L\'indirizzo è richiesto'
+        ]);
+    
         $user = Auth::user();
-        
         
         $newRestaurateur = new Restaurateur();
         

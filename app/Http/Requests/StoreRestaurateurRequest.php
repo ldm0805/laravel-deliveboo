@@ -34,8 +34,6 @@ class StoreRestaurateurRequest extends FormRequest
            'email' => ['required', 'email:rfc,dns'],
            'p_iva' => ['required', 'regex:/^[0-9]{11}$/'], 
            'password' => ['required', 'confirmed', 'min:8', 'uppercase'],
-
-
         ];
     }
 
@@ -55,8 +53,6 @@ class StoreRestaurateurRequest extends FormRequest
             'password.confirmed' =>"Le password non coincidono",
             'password.min' => "La password deve essere composta da :min caratteri",
             'password.symbols' => "password contenga almeno una lettera maiuscola, una lettera minuscola, un numero e un carattere speciale e che ogni carattere venga utilizzato almeno una volta",
-
-
 
         ];
     }
