@@ -33,7 +33,7 @@ class StoreRestaurateurRequest extends FormRequest
            'image' => ['required'],
            'email' => ['required', 'email:rfc,dns'],
            'p_iva' => ['required', 'regex:/^[0-9]{11}$/'], 
-           'password' => ['required', 'confirmed', 'min:8', 'uppercase'],
+           'password' => ['required', 'confirmed', 'min:8'],
         ];
     }
 
@@ -52,8 +52,6 @@ class StoreRestaurateurRequest extends FormRequest
             'password.required' =>"La password è obbligatoria",
             'password.confirmed' =>"Le password non coincidono",
             'password.min' => "La password deve essere composta da :min caratteri",
-            'password.symbols' => "password contenga almeno una lettera maiuscola, una lettera minuscola, un numero e un carattere speciale e che ogni carattere venga utilizzato almeno una volta",
-
         ];
     }
 }

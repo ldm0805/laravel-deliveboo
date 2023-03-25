@@ -94,7 +94,7 @@ class RestaurateurController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Restaurateur $restaurateur)
-    {
+    {  
         return view('admin.restaurateurs.show', compact('restaurateur'));
     }
 

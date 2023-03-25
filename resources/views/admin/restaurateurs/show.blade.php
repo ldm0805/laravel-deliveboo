@@ -6,8 +6,11 @@
     <div class=" image-size">
     {!! $utils->displayImage($restaurateur->image, $restaurateur->name) !!}
     </div>
-    <p>Email: {{$restaurateur->email}}</p>
-    <p>Indirizzo: {{$restaurateur->address}}</p>
-    <p>P. IVA: {{$restaurateur->p_iva}}</p>
+    <h5>Tipo di cucina: </h5>
+    @foreach ($restaurateur->types  as $type)
+    <p>{{$type->name}}</p>
+        
+    @endforeach
+    <p><strong>Indirizzo:</strong> {{$restaurateur->address}}</p>
 </div>
 @endsection
