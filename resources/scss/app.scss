@@ -7,7 +7,8 @@ header.admin-header {
 .admin-vh-100 {
 	height: calc(100vh - 80px);
 
-	main, #sidebarMenu {
+	main,
+	#sidebarMenu {
 		height: 100%;
 		overflow-y: auto;
 	}
@@ -53,4 +54,10 @@ label {
 	height: 300px;
 	object-fit: cover;
 
+}
+
+form {
+	span {
+		color: red;
+	}
 }

@@ -15,16 +15,29 @@
                             
                             {{-- Name Label --}}
                             <div class="mb-4 row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                    @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                </div>
+                            </div>
+
+                             {{-- Partita Iva Label --}}
+                             <div class="mb-4 row">
+                                <label class="col-md-4 col-form-label text-md-right" for="iva">Partiva Iva</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="p_iva" id="p_iva" maxlength="11">
+                                 
+                                </div>
+                            </div>   
+
+                            {{-- Address Label --}}
+                            <div class="mb-4 row">
+                                <label class="col-md-4 col-form-label text-md-right" for="indirizzo">Indirizzo</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="address" id="indirizzo">
+                                 
                                 </div>
                             </div>
 
@@ -35,11 +48,7 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                  
                                 </div>
                             </div>
 
@@ -50,11 +59,6 @@
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
                                 </div>
                             </div>
 
@@ -67,31 +71,7 @@
                                 </div>
                             </div>
                             
-                            {{-- Partita Iva Label --}}
-                            <div class="mb-4 row">
-                                <label class="col-md-4 col-form-label text-md-right" for="iva">Partiva Iva</label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="p_iva" id="p_iva">
-                                    @error('p_iva')
-                                        <div class="mt-2 alert alert-danger">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>   
-
-                            {{-- Address Label --}}
-                            <div class="mb-4 row">
-                                <label class="col-md-4 col-form-label text-md-right" for="indirizzo">Indirizzo</label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="address" id="indirizzo">
-                                    @error('address')
-                                        <div class="mt-2 alert alert-danger">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
+                           
 
                         {{-- Submit Label --}}
                             <div class="mb-4 row mb-0">
