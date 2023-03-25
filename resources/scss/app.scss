@@ -1,5 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 header.admin-header {
 	height: 80px;
 }
@@ -26,16 +32,26 @@ header.admin-header {
 	}
 }
 
-.grid-container {
-	display: grid;
-	grid-template-columns: 20% 30% 30% auto;
-	column-gap: 1em;
+.plates-table {
+	.grid-container {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		column-gap: 1em;
+	}
 }
 
 .restaurateurs-table {
+	.grid-container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: 1em;
+	}
+}
+
+.restaurateurs-table,
+.plates-table {
 	.t-body {
 		display: grid;
-		grid-template-columns: 100%;
 		row-gap: 5px;
 
 		.t-row:hover {

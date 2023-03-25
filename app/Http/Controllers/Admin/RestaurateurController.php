@@ -84,7 +84,7 @@ class RestaurateurController extends Controller
         if($request->has('types')){
             $newRestaurateur->types()->attach($request->types);
         }
-        return redirect()->route('admin.restaurateurs.index', $newRestaurateur->id)->with('message', 'Ristoratore aggiunto correttamente');
+        return redirect()->route('admin.restaurateurs.index', $newRestaurateur->id)->with('message', 'La creazione del ristoratore: '.$newRestaurateur->name.' è andata a buon fine.');
     }
 
     /**
@@ -144,7 +144,7 @@ class RestaurateurController extends Controller
         }
  
         
-        return redirect()->route('admin.restaurateurs.index')->with('message', 'La modifica del è andata a buon fine.');
+        return redirect()->route('admin.restaurateurs.index')->with('message', 'La modifica è andata a buon fine.');
     }
 
     /**
@@ -156,6 +156,7 @@ class RestaurateurController extends Controller
     public function destroy(Restaurateur $restaurateur)
     {
         $restaurateur->delete();
-        return redirect()->route('admin.restaurateurs.index')->with('message', 'La cancellazione del è andata a buon fine.');
+        
+        return redirect()->route('admin.restaurateurs.index')->with('message', 'La cancellazione del ristoratore: '.$restaurateur->name.' è andata a buon fine.');
     }
 }
