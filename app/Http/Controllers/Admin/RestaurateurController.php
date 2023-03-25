@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateRestaurateurRequest;
 use App\Http\Controllers\Controller; //NECESSARIO 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 
 use App\Models\Type; 
@@ -46,18 +47,20 @@ class RestaurateurController extends Controller
      * @param  \App\Http\Requests\StoreRestaurateurRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRestaurateurRequest $request)
+    public function store(Request $request)
     {
-        $form_data = $request->validated();
+        $form_data = $request->all();
 
+        
         $user = Auth::user();
-
-
+        
+        
         $newRestaurateur = new Restaurateur();
-
+        
         $slug = Restaurateur::generateSlug($form_data['name']);
-
+        
         $form_data['slug'] = $slug;
+
         $form_data['user_id'] = $user->id;
 
         if($request->hasFile('image')){
