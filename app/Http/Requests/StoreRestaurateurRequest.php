@@ -5,7 +5,8 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\Rules\Password as PasswordRule;
 
 
 class StoreRestaurateurRequest extends FormRequest
@@ -33,7 +34,7 @@ class StoreRestaurateurRequest extends FormRequest
            'image' => ['required'],
            'email' => ['required', 'email:rfc,dns'],
            'p_iva' => ['required', 'regex:/^[0-9]{11}$/'], 
-           'password' => ['required', 'confirmed', 'min:8'],
+           'password' => ['required', 'confirmed',  PasswordRule::min(8)->mixedCase()->numbers()->symbols()],
         ];
     }
 

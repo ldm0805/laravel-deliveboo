@@ -72,7 +72,7 @@ class PlateController extends Controller
 
         $newPlate->save();
 
-        return redirect()->route('admin.plates.index', $newPlate->slug)->with('message', 'Piatto aggiunto correttamente');
+        return redirect()->route('admin.plates.index', $newPlate->slug)->with('message', 'Il piatto: '.$newPlate->name.' è stato aggiunto correttamente');
     }
 
     /**
@@ -127,7 +127,7 @@ class PlateController extends Controller
          }
 
         $plate->update($form_data);       
-        return redirect()->route('admin.plates.index')->with('message', 'La modifica del è andata a buon fine.');
+        return redirect()->route('admin.plates.index')->with('message', 'La modifica è andata a buon fine.');
     }
 
     /**
@@ -139,6 +139,6 @@ class PlateController extends Controller
     public function destroy(Plate $plate)
     {
         $plate->delete();
-        return redirect()->route('admin.plates.index')->with('message', 'La cancellazione del è andata a buon fine.');
+        return redirect()->route('admin.plates.index')->with('message', 'Il piatto: '.$plate->name.' è stato cancellato correttamente');
     }
 }
