@@ -7,7 +7,7 @@
     {!! $utils->displayImage($restaurateur->image, $restaurateur->name) !!}
     </div>
     <h5>Tipo di cucina: </h5>
-    @foreach ($restaurateur->types  as $type)
+    @foreach ($restaurateur->types as $type)
     <p>{{$type->name}}</p>
         
     @endforeach
