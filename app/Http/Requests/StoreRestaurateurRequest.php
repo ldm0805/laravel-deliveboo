@@ -29,7 +29,7 @@ class StoreRestaurateurRequest extends FormRequest
     public function rules()
     {
         return [
-           'name' => ['required', 'max:50'],
+           'name' => ['required', 'max:50', 'unique:restaurateurs'],
            'address' => ['required', 'max:100'],
            'image' => ['required'],
            'email' => ['required', 'email:rfc,dns', 'unique'],
