@@ -53,12 +53,13 @@ class RestaurateurController extends Controller
     {
         // $form_data = $request->all();
         $form_data = $request->validate([
-            'name' => ['required'],
-            'address' => ['required'],
-            'image' => ['nullable'],
+            'name' => 'required|unique:restaurateurs',
+            'address' => 'required',
+            'image' => 'nullable',
 
         ],[
             'name.required' => 'Il nome è richiesto',
+            'name.unique' => 'Il nome già in uso',
             'address.required' => 'L\'indirizzo è richiesto'
         ]);
     
