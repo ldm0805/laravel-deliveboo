@@ -7,8 +7,8 @@ import.meta.glob([
 
 const deleteButton = document.querySelectorAll('.confirm-delete[type="submit"]');
 
-deleteButton.forEach((button) =>{
-    button.addEventListener('click', function(event){
+deleteButton.forEach((button) => {
+    button.addEventListener('click', function (event) {
         event.preventDefault();
 
         const Title = button.getAttribute('data-title');
@@ -22,9 +22,10 @@ deleteButton.forEach((button) =>{
         modalTitle.textContent = Title;
 
         const deleteButton = modal.querySelector('#confirm-delete');
-        deleteButton.addEventListener('click', () =>{
-                button.parentElement.submit();
+        deleteButton.addEventListener('click', () => {
+            button.parentElement.submit();
         });
 
     });
 });
+
