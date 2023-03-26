@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -44,14 +46,13 @@
                             {{-- Cechbox Label --}}
                             <div class="mb-4 row">
                                 <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Seleziona cucina') }}*</label>
-                                @foreach ($types as $type)
-                                    <div class="form-check @error('types') is-invalid @enderror">
-                                        <div class="m-2 col-3">
-                                            <input class="form-check-input" type="checkbox" value="{{ $type->id }}" name='types[]'>
-                                            <label class="form-check-label"> {{ $type->name }} </label>
-                                        </div>
-                                    </div>
-                                @endforeach
+                                <div class="col-md-6">
+                                    <select class="form-select" name="type" id="type"  multiple name="types[]">
+                                        @foreach ($types as $type)
+                                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
 
                             {{-- Email Label --}}
@@ -87,6 +88,7 @@
                             
                            
 
+                        <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
                         {{-- Submit Label --}}
                             <div class="mb-4 row mb-0">
                                 <div class="col-md-6 offset-md-4">

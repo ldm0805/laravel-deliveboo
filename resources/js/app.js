@@ -29,3 +29,8 @@ deleteButton.forEach((button) => {
     });
 });
 
+new MultiSelectTag('type')
+// new MultiSelectTag('type', {
+//     rounded: true,
+//     shadow: true
+// })
