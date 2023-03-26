@@ -47,7 +47,7 @@
                             <div class="mb-4 row">
                                 <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Seleziona cucina') }}*</label>
                                 <div class="col-md-6">
-                                    <select class="form-select" name="type" id="type"  multiple name="types[]">
+                                    <select class="form-control" id="types" multiple name="types[]">
                                         @foreach ($types as $type)
                                             <option value="{{ $type->id }}">{{ $type->name }}</option>
                                         @endforeach
