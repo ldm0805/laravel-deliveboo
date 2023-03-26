@@ -29,7 +29,7 @@ deleteButton.forEach((button) => {
     });
 });
 
-new MultiSelectTag('type')
+new MultiSelectTag('types')
 // new MultiSelectTag('type', {
 //     rounded: true,
 //     shadow: true
