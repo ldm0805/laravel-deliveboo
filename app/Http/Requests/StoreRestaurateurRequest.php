@@ -32,9 +32,9 @@ class StoreRestaurateurRequest extends FormRequest
            'name' => ['required', 'max:50'],
            'address' => ['required', 'max:100'],
            'image' => ['required'],
-           'email' => ['required', 'email:rfc,dns'],
+           'email' => ['required', 'email:rfc,dns', 'unique'],
            'p_iva' => ['required', 'regex:/^[0-9]{11}$/'], 
-           'password' => ['required', 'confirmed',  PasswordRule::min(8)->mixedCase()->numbers()->symbols()],
+           'password' => ['required', 'confirmed'],
         ];
     }
 
@@ -48,11 +48,13 @@ class StoreRestaurateurRequest extends FormRequest
             'image.required' => "L'immagine è obbligatoria",
             'email.required' => "La mail è obbligatoria",
             'email.email' =>"L'indirizzo mail deve essere valido",
+            'email.unique' =>"L'indirizzo mail è già presente sul sito",
             'p_iva.required' =>"La partita iva è obbligatoria",
             'p_iva.regex' =>"La partita iva deve essere composta da soli numeri e deve essere lunga 11 caratteri",
             'password.required' =>"La password è obbligatoria",
             'password.confirmed' =>"Le password non coincidono",
             'password.min' => "La password deve essere composta da :min caratteri",
+
         ];
     }
 }

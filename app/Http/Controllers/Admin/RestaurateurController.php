@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller; //NECESSARIO
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\Rules\Password as PasswordRule;
 
 
 use App\Models\Type; 
