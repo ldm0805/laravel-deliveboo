@@ -29,8 +29,14 @@ deleteButton.forEach((button) => {
     });
 });
 
+document.querySelector('form').addEventListener('submit', function (event) {
+    let types = document.getElementById('types');
+    let errorMessage = document.getElementById('error-message');
+    if (types.options.selectedIndex == -1) {
+        errorMessage.style.display = 'block';
+        event.preventDefault();
+    } else {
+        errorMessage.style.display = 'none';
+    }
+});
 new MultiSelectTag('types')
-// new MultiSelectTag('type', {
-//     rounded: true,
-//     shadow: true
-// })
