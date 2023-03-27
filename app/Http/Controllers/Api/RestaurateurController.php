@@ -9,7 +9,7 @@ use App\Models\Restaurateur;
 class RestaurateurController extends Controller
 {
     public function index(){
-        $restaurateurs = Restaurateur::all();
+        $restaurateurs = Restaurateur::with('plate','types')->paginate(6);
         return response()->json([
             'success' => true,
             'results' => $restaurateurs,
