@@ -2,28 +2,32 @@
 @inject('utils', 'App\Utils\Utils')
 @section('content')
 <div class="text-white">
+    {{-- Nome del piatto --}}
     <h4 class="mt-5">Ristorante: {{$plate->name}}.</h4>
+
+    {{-- Funzione per visualizzare l'immagine --}}
     <div class="my-3 image-size">
         {!! $utils->displayImage($plate->image, $plate->name) !!}
     </div>
+    
+    {{-- Ingredienti --}}
     <p>Ingredienti: {{$plate->ingredients}}</p>
+
+    {{-- Indirizzo --}}
     <p>Indirizzo: {{$plate->price}}</p>
+
+    {{-- Funzione per visualizzare la visibilità con delle icone--}}
     <p>Visibilità:
-        @if($plate['visible'])
-            <i class="fa-solid fa-check" style="color: #008000;"></i>
-        @else
-            <i class="fa-solid fa-x" style="color: #ff0000;"></i>
-        @endif
+        {!! $utils->changeboolean($plate['visible']) !!}
     </p>
+
+    {{-- Funzione per visualizzare la disponibilità con delle icone--}}
     <p>Diponibilità:
-        @if($plate['availability'])
-            <i class="fa-solid fa-check" style="color: #008000;"></i>
-        @else
-            <i class="fa-solid fa-x" style="color: #ff0000;"></i>
-        @endif
+        {!! $utils->changeboolean($plate['availability']) !!}
     </p>
+
+    {{-- Descrizione --}}
     <p>Descrizione: {{$plate->description}}</p>
     
-
 </div>
 @endsection

@@ -3,7 +3,7 @@
 
 	<div class="text-white py-5">
 		<div class="d-flex justify-content-between align-items-center">
-			<h1>RISTORATORI</h1>
+			<h1>Ristoranti</h1>
 			<a href="{{route('admin.restaurateurs.create') }}" class="btn btn-success">
 				<i class="fa-solid fa-square-plus fa-lg fa-fw"></i> Aggiungi un nuovo ristorante
 			</a>

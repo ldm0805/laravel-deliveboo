@@ -5,17 +5,17 @@ namespace App\Utils;
 
 class Utils
 {
-//     function changeDate($saleDate)
-// {
-//     if (!$saleDate) {
-//         return 'Data non disponibile';
-//     }
-//     else{
-//         return \Carbon\Carbon::createFromFormat('Y-m-d', $saleDate)->format('d/M/Y');
-//     }
-// }
+    // Cambio del valore dei booleani
+function changeboolean($boolValue){
+    if($boolValue){
+        return '<i class="fa-solid fa-check" style="color: #008000;"></i>';
+    }
+    else{
+        return '<i class="fa-solid fa-x" style="color: #ff0000;"></i>';
+    }
+}
 
-
+    // Caambio di immagine
 function displayImage($imagePath, $altText) {
     $publicPath = public_path('storage/'.$imagePath);
     if (file_exists($publicPath)) {
