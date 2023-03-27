@@ -44,11 +44,11 @@ class RegisteredUserController extends Controller
             'address' => ['required', 'max:100'],
             'p_iva'=> ['required', 'size:11', 'unique:users'],
             'types'=> ['required'],
-
-            
         ],
         [
-            'name.unique' => 'Il nome già in uso'
+            'name.unique' => 'Il nome è già in uso',
+            'p_iva.unique' => 'Questa partita iva è già in uso',
+
         ]);
 
         $user = User::create([
