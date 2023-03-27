@@ -44,7 +44,7 @@ class RegisteredUserController extends Controller
             // 'regex:/[a-z]/', 'regex:/[A-Z]/', 'regex:/[0-9]/', 'regex:/[@$!%*#?&]/'
             'address' => ['required', 'max:100'],
             'p_iva'=> ['required', 'size:11'],
-            'type'=> ['required'],
+            'types'=> ['required'],
 
             
         ]);
@@ -55,7 +55,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'address' => $request->address,
             'p_iva' => $request->p_iva,
-            'type' => $request->type,
+            'types' => $request->types,
 
 
         ]);
