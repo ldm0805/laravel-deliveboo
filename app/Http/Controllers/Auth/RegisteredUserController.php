@@ -47,6 +47,9 @@ class RegisteredUserController extends Controller
             'types'=> ['required'],
 
             
+        ],
+        [
+            'name.unique' => 'Il nome già in uso'
         ]);
 
         $user = User::create([
