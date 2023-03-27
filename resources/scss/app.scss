@@ -1,3 +1,5 @@
+@use './partials/variables' as *;
+@use './partials/mixins' as *;
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
 
@@ -6,6 +8,34 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+// Utilities
+
+.my-bg-primary {
+	background-color: $primary_color;
+}
+
+.my-text-primary {
+	color: $primary_color;
+}
+
+.my-bg-light {
+	background-color: $light_color;
+}
+
+.my-text-light {
+	color: $light_color;
+}
+
+.my-bg-dark {
+	background-color: $dark_color;
+}
+
+.my-text-primary {
+	color: $dark_color;
+}
+
+// Style
 
 body {
 	font-family: 'Rubik', sans-serif;
@@ -25,17 +55,44 @@ header.admin-header {
 	}
 }
 
+// Sidebar
+
 #sidebarMenu {
 	ul {
 		display: grid;
 		grid-template-columns: auto;
 		row-gap: 0.5em;
 
+
+		// List Items
+
+		li {
+			a {
+				color: $light_color;
+			}
+		}
+		
 		li.nav-item:hover {
-			background-color: $gray-800;
+			background-color: rgba($color: $light_color, $alpha: 0.3);
+		}
+
+		li.nav-item.my-selected {
+			background-color: $light_color;
+
+			a {
+				color: $primary_color;
+			}
+		}
+
+
+		li.nav-item.my-selected:hover {
+			background-color: rgba($color: $light_color, $alpha: 1);
 		}
 	}
 }
+
+
+// Plates
 
 .plates-table {
 	.grid-container {
