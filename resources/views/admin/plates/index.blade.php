@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@inject('utils', 'App\Utils\Utils')
 @section('content')
 
 	<div class="text-white py-5">
@@ -36,16 +37,8 @@
 							<div class="grid-item">{{$item['name']}}</div>
 							<div class="grid-item">{{$item['ingredients']}}</div>
 							<div class="grid-item">{{$item['price']}} &euro;</div>
-                            @if($item['visible'])
-                                <div class="grid-item"><i class="fa-solid fa-check" style="color: #008000;"></i></div>
-                            @else
-                                <div class="grid-item"><i class="fa-solid fa-x" style="color: #ff0000;"></i></div>
-                            @endif
-                            @if($item['availability'])
-                                <div class="grid-item"><i class="fa-solid fa-check" style="color: #008000;"></i></div>
-                            @else
-                                <div class="grid-item"><i class="fa-solid fa-x" style="color: #ff0000;"></i></div>
-                            @endif
+							{!! $utils->changeboolean($item['visible']) !!}
+							{!! $utils->changeboolean($item['availability']) !!}
                             <div class="grid-item">{{$item['description']}}</div>
 							<div class="grid-item d-flex gap-3">
 								<a href="{{ route('admin.plates.edit', $item) }}" class="text-white"  title="Modifica"><i class="fa-solid fa-pen-to-square"></i></a>
