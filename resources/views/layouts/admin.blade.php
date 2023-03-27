@@ -37,12 +37,28 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <input class="form-control form-control-dark w-100" type="text" Placeholder="Search">
-            <div class="navbar nav">
+            <div class="navbar nav mx-5">
                 <div class="nav-item text-nowrap ms-2">
-                    <a class="btnblue" href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre="">
+                                Provaselectt
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="http://127.0.0.1:8000/admin">Dashboard</a>
+                                <a class="dropdown-item" href="http://127.0.0.1:8000/profile">Profile</a>
+                                <a class="dropdown-item" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                                <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" class="d-none" novalidate="novalidate">
+                                    <input type="hidden" name="_token" value="bTwrOB0RzQdLOyTJG7JLJ9tWReTm9xQLGPWFthYB">
+                                    <input type="hidden" name="proengsoft_jsvalidation">
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
