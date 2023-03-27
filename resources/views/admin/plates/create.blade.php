@@ -43,7 +43,10 @@
                 </div>
                 <div class="form-group my-2">
                     <label class="fs-2 my-1 fw-semibold" for="prezzo">Prezzo</label>
-                    <input type="number" class="form-control" name="price" id="prezzo" placeholder="Inserire Prezzo" step=".01" min="0" max="99.99">
+                    <div class="input-group mb-3">
+                        <input type="number" data-bs-input class="form-control input-number input-number-currency" name="price" id="prezzo" placeholder="Inserire Prezzo (&euro;)" step=".01" min="0" max="99.99">
+                        <span class="input-group-text" id="basic-addon1">€</span>
+                    </div>
                     @error('price')
                         <div class="mt-2 alert alert-danger">
                             {{ $message }}

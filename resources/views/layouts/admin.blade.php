@@ -46,15 +46,15 @@
                                 Provaselectt
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="http://127.0.0.1:8000/admin">Dashboard</a>
-                                <a class="dropdown-item" href="http://127.0.0.1:8000/profile">Profile</a>
-                                <a class="dropdown-item" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    Logout
+                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">{{__('Dashboard')}}</a>
+                                <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profile')}}</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
-                                <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" class="d-none" novalidate="novalidate">
-                                    <input type="hidden" name="_token" value="bTwrOB0RzQdLOyTJG7JLJ9tWReTm9xQLGPWFthYB">
-                                    <input type="hidden" name="proengsoft_jsvalidation">
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
                                 </form>
                             </div>
                         </li>

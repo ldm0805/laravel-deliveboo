@@ -105,3 +105,17 @@ label {
 	border-radius: var(--bs-btn-border-radius);
 	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.input-number-currency {
+	position: relative;
+
+	&:after {
+		content: "\20AC";
+		/* euro symbol in hexadecimal */
+		position: absolute;
+		top: 50%;
+		right: 8px;
+		/* adjust the distance of the symbol from the input */
+		transform: translateY(-50%);
+	}
+}
