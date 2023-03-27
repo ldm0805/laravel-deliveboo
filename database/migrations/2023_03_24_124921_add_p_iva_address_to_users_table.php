@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('address', 100)->required();
-            $table->string('p_iva', 11)->required();
+            $table->string('p_iva', 11)->required()->unique();
 
         });
     }

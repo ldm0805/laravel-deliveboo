@@ -39,4 +39,6 @@ document.querySelector('form').addEventListener('submit', function (event) {
         errorMessage.style.display = 'none';
     }
 });
+
+
 new MultiSelectTag('types')

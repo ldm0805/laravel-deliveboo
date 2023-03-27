@@ -40,10 +40,9 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:restaurateurs'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed',],
-            // 'regex:/[a-z]/', 'regex:/[A-Z]/', 'regex:/[0-9]/', 'regex:/[@$!%*#?&]/'
+            'password' => ['required', 'confirmed'],
             'address' => ['required', 'max:100'],
-            'p_iva'=> ['required', 'size:11'],
+            'p_iva'=> ['required', 'size:11', 'unique:users'],
             'types'=> ['required'],
 
             

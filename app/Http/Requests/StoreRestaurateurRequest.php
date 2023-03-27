@@ -33,7 +33,7 @@ class StoreRestaurateurRequest extends FormRequest
            'address' => ['required', 'max:100'],
            'image' => ['required'],
            'email' => ['required', 'email:rfc,dns', 'unique'],
-           'p_iva' => ['required', 'regex:/^[0-9]{11}$/'], 
+           'p_iva' => ['required', 'regex:/^[0-9]{11}$/', 'unique:users'], 
            'password' => ['required', 'confirmed'],
         ];
     }

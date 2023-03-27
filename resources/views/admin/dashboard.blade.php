@@ -4,6 +4,13 @@
     <h2 class="fs-4 text-secondary my-4">
         {{ __('Dashboard') }}
     </h2>
+
+    <div class="text-white py-2 d-flex flex-row-reverse">
+        <a class="btn-yellow text-white " href="{{route('profile.edit')}}">
+            <i class="fa-solid fa-pen-to-square"></i> Modifica i dati del tuo profilo
+        </a>
+    </div>
+		
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
