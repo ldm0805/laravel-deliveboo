@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Restaurateur;
+use App\Models\Plate;
 
 class RestaurateurController extends Controller
 {
@@ -15,13 +16,13 @@ class RestaurateurController extends Controller
             'results' => $restaurateurs,
         ]);
     }
-    public function show($slug){
-        $plate = Restaurateur::with('plate','types')->where('slug', $slug)->first();
+    public function show($id){
+        $plates = Plate::all()->where('restaurateur_id', $id);
 
-        if($plate){
+        if($plates){
             return response()->json([
                 'success' => true,
-                'plate' => $plate,
+                'plates' => $plates,
             ]);
         }else{
             return response()->json([
