@@ -56,11 +56,14 @@ class RestaurateurController extends Controller
             'name' => 'required|unique:restaurateurs',
             'address' => 'required',
             'image' => 'nullable',
+            'types' => 'required',
+
 
         ],[
             'name.required' => 'Il nome è richiesto',
             'name.unique' => 'Il nome già in uso',
             'address.required' => 'L\'indirizzo è richiesto'
+            
         ]);
     
         $user = Auth::user();
