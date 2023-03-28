@@ -31,7 +31,7 @@
 	background-color: $dark_color;
 }
 
-.my-text-primary {
+.my-text-dark {
 	color: $dark_color;
 }
 
@@ -116,8 +116,14 @@ header.admin-header {
 		display: grid;
 		row-gap: 5px;
 
+		.controllers {
+			a {
+				color: $dark_color;
+			}
+		}
+
 		.t-row:hover {
-			background-color: $gray-800;
+			background-color: rgba($color: $dark_color, $alpha: 0.2);
 		}
 	}
 }
