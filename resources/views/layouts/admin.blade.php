@@ -107,7 +107,7 @@
                 </nav>
 
                 {{-- Main --}}
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-bg-dark">
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-bg-light my-text-dark">
                     @yield('content')
                 </main>
             </div>
