@@ -16,8 +16,11 @@ class RestaurateurController extends Controller
             'results' => $restaurateurs,
         ]);
     }
-    public function show($id){
-        $plates = Plate::all()->where('restaurateur_id', $id);
+    public function show($slug){
+        $restaurateur = Restaurateur::all()->where('slug', $slug)->first();
+
+
+        $plates = Plate::all()->where('restaurateur_id', $restaurateur->id);
 
         if($plates){
             return response()->json([
