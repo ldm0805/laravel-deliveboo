@@ -15,4 +15,19 @@ class RestaurateurController extends Controller
             'results' => $restaurateurs,
         ]);
     }
+    public function show($slug){
+        $plate = Restaurateur::with('plate','types')->where('slug', $slug)->first();
+
+        if($plate){
+            return response()->json([
+                'success' => true,
+                'plate' => $plate,
+            ]);
+        }else{
+            return response()->json([
+                'success' => false,
+                'error' => 'Nessun piatto trovato',
+            ]);
+        }
+    }
 }
