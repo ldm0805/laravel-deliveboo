@@ -83,6 +83,11 @@ class PlateController extends Controller
      */
     public function show(Plate $plate)
     {
+        $user = Auth::user();
+
+        if($user->id != $plate->restaurateur_id){
+            return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
+        }
         return view('admin.plates.show', compact('plate'));
     }
 
@@ -95,6 +100,10 @@ class PlateController extends Controller
     public function edit(Plate $plate)
     {
         $user = Auth::user();
+
+        if($user->id != $plate->restaurateur_id){
+            return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
+        }
         $restaurateurs = Restaurateur::where('user_id', $user->id)->get();
         return view('admin.plates.edit', compact('plate','restaurateurs'));
     }
@@ -138,6 +147,11 @@ class PlateController extends Controller
      */
     public function destroy(Plate $plate)
     {
+        $user = Auth::user();
+
+        if($user->id != $plate->restaurateur_id){
+            return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
+        }
         $plate->delete();
         return redirect()->route('admin.plates.index')->with('message', 'Il piatto: '.$plate->name.' è stato cancellato correttamente');
     }
