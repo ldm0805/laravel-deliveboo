@@ -101,6 +101,10 @@ class RestaurateurController extends Controller
      */
     public function show(Restaurateur $restaurateur)
     {  
+        $user = Auth::user();
+        if($user->id != $restaurateur->user_id){
+            return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
+        }
         return view('admin.restaurateurs.show', compact('restaurateur'));
     }
 
@@ -113,6 +117,10 @@ class RestaurateurController extends Controller
     public function edit(Restaurateur $restaurateur)
     {
         $types = Type::all();
+        $user = Auth::user();
+        if($user->id != $restaurateur->user_id){
+            return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
+        }
         return view('admin.restaurateurs.edit', compact('restaurateur','types'));
     }
 
@@ -161,6 +169,12 @@ class RestaurateurController extends Controller
      */
     public function destroy(Restaurateur $restaurateur)
     {
+        $user = Auth::user();
+
+        if($user->id != $restaurateur->user_id){
+            return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
+        }
+
         $restaurateur->delete();
         
         return redirect()->route('admin.restaurateurs.index')->with('message', 'La cancellazione del ristoratore: '.$restaurateur->name.' è andata a buon fine.');
