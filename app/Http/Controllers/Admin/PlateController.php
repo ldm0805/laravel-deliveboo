@@ -25,7 +25,7 @@ class PlateController extends Controller
 
         $plates = Plate::where('user_id', $user->id)->get();
 
-        return view('admin.plates.index', compact('plates', 'item'));
+        return view('admin.plates.index', compact('plates'));
     }
 
     /**
