@@ -4,7 +4,7 @@
 	<div class="py-5">
 		<div class="d-flex justify-content-between align-items-center">
 			<h1 class="fw-bold">Ristoranti</h1>
-			<a href="{{route('admin.restaurateurs.create') }}" class="btn btn-success">
+			<a href="{{route('admin.restaurateurs.create') }}" class="btn btn-outline-dark">
 				<i class="fa-solid fa-square-plus fa-lg fa-fw"></i> Aggiungi un nuovo ristorante
 			</a>
 		</div>
