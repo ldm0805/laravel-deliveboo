@@ -71,7 +71,7 @@
             <div class="row h-100">
 
                 {{-- Sidebar --}}
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block navbar-dark sidebar collapse my-bg-primary">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block my-text-light fw-bold sidebar collapse my-bg-primary">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
                            <li class="nav-item rounded {{ Route::currentRouteName() == 'admin.dashboard' ? 'my-selected' : '' }}">
