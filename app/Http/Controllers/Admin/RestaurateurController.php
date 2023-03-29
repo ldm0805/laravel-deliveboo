@@ -15,6 +15,7 @@ use Illuminate\Validation\Rules\Password as PasswordRule;
 
 use App\Models\Type; 
 use App\Models\User;
+use App\Models\Plate; 
 
 
 class RestaurateurController extends Controller
@@ -101,11 +102,12 @@ class RestaurateurController extends Controller
      */
     public function show(Restaurateur $restaurateur)
     {  
+        $plates = Plate::all();
         $user = Auth::user();
         if($user->id != $restaurateur->user_id){
             return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
         }
-        return view('admin.restaurateurs.show', compact('restaurateur'));
+        return view('admin.restaurateurs.show', compact('restaurateur', 'plates'));
     }
 
     /**

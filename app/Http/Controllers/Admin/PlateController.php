@@ -25,7 +25,7 @@ class PlateController extends Controller
 
         $plates = Plate::where('user_id', $user->id)->get();
 
-        return view('admin.plates.index', compact('plates'));
+        return view('admin.plates.index', compact('plates', 'item'));
     }
 
     /**
@@ -46,19 +46,21 @@ class PlateController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StorePlateRequest  $request
+     * @param  \App\Models\Plate  $plate
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePlateRequest $request)
+    public function store(StorePlateRequest $request, Plate $plate)
     {
         $form_data = $request->validated();
 
         $user = Auth::user();
+        $restaurateur = Restaurateur::where('id', $request);
 
         $newPlate = new Plate();
 
         $slug = Plate::generateSlug($form_data['name']);
-
         $form_data['slug'] = $slug;
+        $form_data['quantity'] = 0;
         $form_data['user_id'] = $user->id;
 
 

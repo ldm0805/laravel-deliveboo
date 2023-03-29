@@ -32,14 +32,15 @@
 
 				{{-- t-body --}}
 				<div class="t-body">
-					@foreach ($plates as $item)	
+					@foreach ($plates as $plate)
+					@if($plate->restaurateur_id = $item->id)	
 						<div class="grid-item t-row grid-container align-items-center py-3 px-3 rounded">
-							<div class="grid-item">{{$item['name']}}</div>
-							<div class="grid-item">{{$item['ingredients']}}</div>
-							<div class="grid-item">{{$item['price']}} &euro;</div>
-							{!! $utils->changeboolean($item['visible']) !!}
-							{!! $utils->changeboolean($item['availability']) !!}
-                            <div class="grid-item">{{$item['description']}}</div>
+							<div class="grid-item">{{$plate['name']}}</div>
+							<div class="grid-item">{{$plate['ingredients']}}</div>
+							<div class="grid-item">{{$plate['price']}} &euro;</div>
+							{!! $utils->changeboolean($plate['visible']) !!}
+							{!! $utils->changeboolean($plate['availability']) !!}
+                            <div class="grid-item">{{$plate['description']}}</div>
 							<div class="grid-item d-flex gap-3">
 								<a href="{{ route('admin.plates.edit', $item) }}" class="text-white"  title="Modifica"><i class="fa-solid fa-pen-to-square"></i></a>
 								<a href="{{ route('admin.plates.show', $item->slug) }}" class="text-white"  title="Visualizza"><i class="fa-solid fa-eye"></i></a>
@@ -52,6 +53,7 @@
 								</form> 
 							</div>
 						</div>
+						@endif
 					@endforeach
 				</div>
 			</div>

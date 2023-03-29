@@ -12,5 +12,11 @@
         
     @endforeach
     <p><strong>Indirizzo:</strong> {{$restaurateur->address}}</p>
+    <h2>MENU</h2>
+    @foreach($plates as $plate)
+        @if($restaurateur->id == $plate->restaurateur_id)
+            {{ $plate->name }}
+        @endif
+    @endforeach
 </div>
 @endsection
