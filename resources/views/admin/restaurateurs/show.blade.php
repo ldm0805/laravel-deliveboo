@@ -18,7 +18,7 @@
     <div class="text-white py-5">
 		<div class="d-flex justify-content-between align-items-center">
 			<h1>PIATTI</h1>
-			<a href="{{route('admin.plates.create') }}" class="btn btn-success">
+			<a href="{{route('admin.plates.create', $restaurateur->id) }}" class="btn btn-success">
 				<i class="fa-solid fa-square-plus fa-lg fa-fw"></i> Aggiungi un nuovo piatto
 			</a>
 		</div>

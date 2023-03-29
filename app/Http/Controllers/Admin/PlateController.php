@@ -40,7 +40,7 @@ class PlateController extends Controller
         $form_data = $request->all();
 
         $user = Auth::user();
-        $plates = Plate::where('user_id', $user->id)->get();
+        $plates = Plate::all();
         $restaurateurs = Restaurateur::where('user_id', $user->id)->get();
         return view('admin.plates.create', compact('plates','restaurateurs', 'form_data'));
     }
@@ -93,6 +93,7 @@ class PlateController extends Controller
         if($user->id != $plate->user_id){
             return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
         }
+
         return view('admin.plates.show', compact('plate'));
     }
 
