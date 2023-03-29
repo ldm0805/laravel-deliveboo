@@ -100,6 +100,7 @@ class RestaurateurController extends Controller
      * @param  \App\Models\Restaurateur  $restaurateur
      * @return \Illuminate\Http\Response
      */
+    /* aggiunta piatti */
     public function show(Restaurateur $restaurateur)
     {  
         $plates = Plate::all();
