@@ -17,20 +17,18 @@
             {{-- Type --}}
             
                 <div class="d-flex gap-2 mb-2">
-                    <i class="fa-solid fa-utensils align-self-center fs-5"></i>
-                    <h5 class="m-0 fw-bold">Tipo di cucina: </h5>
+                    <h5 class="fw-bold">Tipo di cucina: </h5>
                     <div class="type-tags">
                         @foreach ($restaurateur->types as $type)
-                            <p class="my-tag px-2 rounded my-bg-primary m-0">{{$type->name}}</p>    
+                            <p class="my-tag px-2 rounded my-bg-primary">{{$type->name}}</p>    
                         @endforeach
                     </div>
                 </div>
 
             {{-- Address --}}
             <div class="d-flex gap-2 mb-2">
-                <i class="fa-solid fa-location-dot align-self-center fs-5"></i>
-                <h5 class="m-0 fw-bold"> Indirizzo:</h5>
-                <p class="m-0">{{$restaurateur->address}}</p>
+                <h5 class=" fw-bold"> Indirizzo:</h5>
+                <p>{{$restaurateur->address}}</p>
             </div>
 
             {{-- Controlllers --}}
