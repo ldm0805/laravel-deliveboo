@@ -38,6 +38,13 @@ h1, h2, h3, h4, h5, h6, p {
 .my-text-dark {
 	color: $dark_color;
 }
+.my-bg-grey {
+	background-color: $grey_color;
+}
+
+.my-text-grey {
+	color: $grey_color;
+}
 
 // Style
 
@@ -190,5 +197,31 @@ label {
 		right: 8px;
 		/* adjust the distance of the symbol from the input */
 		transform: translateY(-50%);
+	}
+}
+
+// Profile Update
+
+.update-profile-information, .update-password {
+	.my-profile-headline {
+		margin-bottom: 1em;
+		h2 {
+			font-weight: bold;
+		}
+
+		p {
+			// margin-top: 8px;
+			color: $grey_color;
+			font-size: 1.3em;
+		}
+	}
+	form {
+		label {
+			font-weight: bold;
+			color: $dark_color;
+		}
+		.my-profile-input {
+			margin-bottom: 1em;
+		}
 	}
 }
