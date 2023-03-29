@@ -8,6 +8,8 @@ use App\Http\Requests\UpdatePlateRequest;
 use App\Http\Controllers\Controller; //NECESSARIO  
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\Http\Requests\StoreRestaurateurRequest;
 
 use App\Models\Restaurateur;
 
@@ -33,13 +35,14 @@ class PlateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $plates = Plate::all();
+        $form_data = $request->all();
 
         $user = Auth::user();
+        $plates = Plate::where('user_id', $user->id)->get();
         $restaurateurs = Restaurateur::where('user_id', $user->id)->get();
-        return view('admin.plates.create', compact('plates','restaurateurs'));
+        return view('admin.plates.create', compact('plates','restaurateurs', 'form_data'));
     }
 
     /**
@@ -87,7 +90,7 @@ class PlateController extends Controller
     {
         $user = Auth::user();
 
-        if($user->id != $plate->restaurateur_id){
+        if($user->id != $plate->user_id){
             return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
         }
         return view('admin.plates.show', compact('plate'));
@@ -103,7 +106,7 @@ class PlateController extends Controller
     {
         $user = Auth::user();
 
-        if($user->id != $plate->restaurateur_id){
+        if($user->id != $plate->user_id){
             return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
         }
         $restaurateurs = Restaurateur::where('user_id', $user->id)->get();
@@ -151,7 +154,7 @@ class PlateController extends Controller
     {
         $user = Auth::user();
 
-        if($user->id != $plate->restaurateur_id){
+        if($user->id != $plate->user_id){
             return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
         }
         $plate->delete();
