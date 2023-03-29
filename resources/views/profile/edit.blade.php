@@ -2,30 +2,24 @@
 @section('content')
 
 <div class="container">
-    <h2 class="fs-4 text-secondary my-4">
-        {{ __('Profile') }}
-    </h2>
-    <div class="card p-4 mb-4 bg-white shadow rounded-lg">
 
+    {{-- Personal Info --}}
+    <div class="card p-4 mb-4 bg-white shadow rounded-lg w-50 mx-auto">
         @include('profile.partials.update-profile-information-form')
-
     </div>
 
-    <div class="card p-4 mb-4 bg-white shadow rounded-lg">
-
-
+    {{-- Update Password --}}
+    <div class="card p-4 mb-4 bg-white shadow rounded-lg w-50 mx-auto">
         @include('profile.partials.update-password-form')
-
     </div>
 
-    <div class="card p-4 mb-4 bg-white shadow rounded-lg">
-
-
+    {{-- Delete Account --}}
+    <div class="card p-4 mb-4 bg-white shadow rounded-lg w-50 mx-auto">
         @include('profile.partials.delete-user-form')
-
     </div>
 
 </div>
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 

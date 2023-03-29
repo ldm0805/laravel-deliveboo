@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div class="my-bg-light my-text-dark vh-100"id="app">
+    <div class="my-bg-light my-text-dark admin-vh-100"id="app">
         <header class="navbar navbar-expand-md navbar-dark my-bg-primary my-text-light shadow-sm my-header">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
@@ -79,7 +79,7 @@
             </div>
         </header>
 
-        <main class="my-bg-light">
+        <main class="my-bg-light py-4">
             @yield('content')
         </main>
     </div>
