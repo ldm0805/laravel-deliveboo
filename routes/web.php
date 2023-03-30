@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\DashboardController as DashboardController;
 use App\Http\Controllers\Admin\RestaurateurController as RestaurateurController;
 use App\Http\Controllers\Admin\PlateController as PlateController;
 use App\Http\Controllers\Admin\TypeController as TypeController;
+use App\Http\Controllers\StripeController as StripeController;
+
 
 
 
@@ -25,9 +27,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/payment', 'App\Http\Controllers\StripeController@checkout')->name('checkout');
+Route::post('/session', 'App\Http\Controllers\StripeController@session')->name('session');
+Route::get('/success', 'App\Http\Controllers\StripeController@success')->name('success');
+
+
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('restaurateurs', RestaurateurController::class)->parameters(['restaurateurs' => 'restaurateur:slug']);

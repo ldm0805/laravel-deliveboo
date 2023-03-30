@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RestaurateurController as RestaurateurController;
+use App\Http\Controllers\Api\MyCheckController as MyCheckController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,12 @@ use App\Http\Controllers\Api\RestaurateurController as RestaurateurController;
 Route::get('/restaurateurs', [RestaurateurController::class, 'index']);
 Route::get('/restaurateurs/{slug}', [RestaurateurController::class, 'show']);
 
+Route::middleware('auth:api')->group(function() {
+	
+});
+
+
+Route::get('mycheck/pages', 'MyCheckController@index');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
