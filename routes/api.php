@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\RestaurateurController as RestaurateurController;
 */
 
 Route::get('/restaurateurs', [RestaurateurController::class, 'index']);
+Route::get('/restaurateurs/{slug}', [RestaurateurController::class, 'show']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -8,6 +8,8 @@ use App\Http\Requests\UpdatePlateRequest;
 use App\Http\Controllers\Controller; //NECESSARIO  
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\Http\Requests\StoreRestaurateurRequest;
 
 use App\Models\Restaurateur;
 
@@ -33,32 +35,35 @@ class PlateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $plates = Plate::all();
+        $form_data = $request->all();
 
         $user = Auth::user();
+        $plates = Plate::all();
         $restaurateurs = Restaurateur::where('user_id', $user->id)->get();
-        return view('admin.plates.create', compact('plates','restaurateurs'));
+        return view('admin.plates.create', compact('plates','restaurateurs', 'form_data'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StorePlateRequest  $request
+     * @param  \App\Models\Plate  $plate
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePlateRequest $request)
+    public function store(StorePlateRequest $request, Plate $plate)
     {
         $form_data = $request->validated();
 
         $user = Auth::user();
+        $restaurateur = Restaurateur::where('id', $request);
 
         $newPlate = new Plate();
 
         $slug = Plate::generateSlug($form_data['name']);
-
         $form_data['slug'] = $slug;
+        $form_data['quantity'] = 0;
         $form_data['user_id'] = $user->id;
 
 
@@ -83,6 +88,12 @@ class PlateController extends Controller
      */
     public function show(Plate $plate)
     {
+        $user = Auth::user();
+
+        if($user->id != $plate->user_id){
+            return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
+        }
+
         return view('admin.plates.show', compact('plate'));
     }
 
@@ -95,6 +106,10 @@ class PlateController extends Controller
     public function edit(Plate $plate)
     {
         $user = Auth::user();
+
+        if($user->id != $plate->user_id){
+            return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
+        }
         $restaurateurs = Restaurateur::where('user_id', $user->id)->get();
         return view('admin.plates.edit', compact('plate','restaurateurs'));
     }
@@ -138,6 +153,11 @@ class PlateController extends Controller
      */
     public function destroy(Plate $plate)
     {
+        $user = Auth::user();
+
+        if($user->id != $plate->user_id){
+            return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
+        }
         $plate->delete();
         return redirect()->route('admin.plates.index')->with('message', 'Il piatto: '.$plate->name.' è stato cancellato correttamente');
     }

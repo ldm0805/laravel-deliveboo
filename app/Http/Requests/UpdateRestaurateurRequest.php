@@ -34,6 +34,7 @@ class UpdateRestaurateurRequest extends FormRequest
     public function messages()
     {
         return [
+            'name.unique' => 'Il nome è già in uso',
             'name.required'   => 'Il nome è obbligatorio',
             'name.max'        => 'Nome troppo lungo! Inserisci al massimo :max caratteri',
             'address.required'  => "L'indirizzo è obbligatorio",

@@ -35,6 +35,7 @@ class StoreRestaurateurRequest extends FormRequest
            'email' => ['required', 'email:rfc,dns', 'unique'],
            'p_iva' => ['required', 'regex:/^[0-9]{11}$/', 'unique:users'], 
            'password' => ['required', 'confirmed'],
+           'types' => ['required', 'min:1']
         ];
     }
 
@@ -54,6 +55,7 @@ class StoreRestaurateurRequest extends FormRequest
             'password.required' =>"La password è obbligatoria",
             'password.confirmed' =>"Le password non coincidono",
             'password.min' => "La password deve essere composta da :min caratteri",
+            'types.required' => "Selezionare almeno una cucina"
 
         ];
     }

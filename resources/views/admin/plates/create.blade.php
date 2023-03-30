@@ -27,8 +27,10 @@
                     <label class="fs-2 my-1 fw-semibold" for="ristorante">Ristorante</label>
                     <select class="d-block form-control" name="restaurateur_id" id="restaurateur_id">
                         <option value="">Seleziona tipo</option>
-                        @foreach ($restaurateurs as $restaurateur)                                
-                        <option value="{{$restaurateur->id}}">{{$restaurateur->name}}</option>
+                        @foreach ($form_data as $index => $data)      
+                        @foreach ($restaurateurs as $restaurateur)
+                        <option value="{{$restaurateur->id}}" {{$restaurateur->id == $index ? 'selected' : ''}}>{{$restaurateur->name}}</option>
+                        @endforeach                          
                         @endforeach
                     </select>
                 </div>

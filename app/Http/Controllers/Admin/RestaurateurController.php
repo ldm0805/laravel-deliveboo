@@ -15,6 +15,7 @@ use Illuminate\Validation\Rules\Password as PasswordRule;
 
 use App\Models\Type; 
 use App\Models\User;
+use App\Models\Plate; 
 
 
 class RestaurateurController extends Controller
@@ -56,11 +57,14 @@ class RestaurateurController extends Controller
             'name' => 'required|unique:restaurateurs',
             'address' => 'required',
             'image' => 'nullable',
+            'types' => 'required',
+
 
         ],[
             'name.required' => 'Il nome è richiesto',
             'name.unique' => 'Il nome già in uso',
             'address.required' => 'L\'indirizzo è richiesto'
+            
         ]);
     
         $user = Auth::user();
@@ -96,9 +100,15 @@ class RestaurateurController extends Controller
      * @param  \App\Models\Restaurateur  $restaurateur
      * @return \Illuminate\Http\Response
      */
+    /* aggiunta piatti */
     public function show(Restaurateur $restaurateur)
     {  
-        return view('admin.restaurateurs.show', compact('restaurateur'));
+        $plates = Plate::all();
+        $user = Auth::user();
+        if($user->id != $restaurateur->user_id){
+            return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
+        }
+        return view('admin.restaurateurs.show', compact('restaurateur', 'plates'));
     }
 
     /**
@@ -110,6 +120,10 @@ class RestaurateurController extends Controller
     public function edit(Restaurateur $restaurateur)
     {
         $types = Type::all();
+        $user = Auth::user();
+        if($user->id != $restaurateur->user_id){
+            return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
+        }
         return view('admin.restaurateurs.edit', compact('restaurateur','types'));
     }
 
@@ -158,6 +172,12 @@ class RestaurateurController extends Controller
      */
     public function destroy(Restaurateur $restaurateur)
     {
+        $user = Auth::user();
+
+        if($user->id != $restaurateur->user_id){
+            return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
+        }
+
         $restaurateur->delete();
         
         return redirect()->route('admin.restaurateurs.index')->with('message', 'La cancellazione del ristoratore: '.$restaurateur->name.' è andata a buon fine.');

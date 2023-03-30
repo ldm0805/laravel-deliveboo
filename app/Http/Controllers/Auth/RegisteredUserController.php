@@ -43,11 +43,12 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed'],
             'address' => ['required', 'max:100'],
             'p_iva'=> ['required', 'size:11', 'unique:users'],
-            'types'=> ['required'],
+            'types' => ['required','array', 'min:1']
         ],
         [
             'name.unique' => 'Il nome è già in uso',
             'p_iva.unique' => 'Questa partita iva è già in uso',
+            'types.required' => "Selezionare almeno una cucina"
 
         ]);
 

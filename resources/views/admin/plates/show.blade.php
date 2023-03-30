@@ -2,6 +2,11 @@
 @inject('utils', 'App\Utils\Utils')
 @section('content')
 
+<div class="text-white">
+    {{-- Nome del piatto --}}
+    <h4 class="mt-5">Nome del piatto: {{$plate->name}}.</h4>
+
+
 <div class="d-flex my-4">
 
     {{-- Photo --}}
