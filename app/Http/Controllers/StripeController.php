@@ -23,7 +23,7 @@ class StripeController extends Controller
                     'price_data' => [
                         'currency'     => 'eur',
                         'product_data' => [
-                            'name' => 'FANCULO BRAINTREE!!!!',
+                            'name' => 'ciao BRAINTREE!!!!',
                         ],
                         'unit_amount'  => 50000,
                     ],
