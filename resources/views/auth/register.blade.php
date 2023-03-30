@@ -7,9 +7,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header bg-dark text-white">{{ __('Register') }}</div>
+                    <div class="card-header my-bg-primary text-white">{{ __('Register') }}</div>
 
-                    <div class="card-body bg-dark">
+                    <div class="card-body my-bg-light ">
 
                         {{-- Registration Form --}}
                         <form method="POST" action="{{ route('register') }}">
@@ -17,7 +17,7 @@
                             
                             {{-- Name Label --}}
                             <div class="mb-4 row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}*</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right my-text-dark">{{ __('Nome') }}*</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -27,7 +27,7 @@
 
                              {{-- Partita Iva Label --}}
                              <div class="mb-4 row">
-                                <label class="col-md-4 col-form-label text-md-right" for="iva">Partiva Iva*</label>
+                                <label class="col-md-4 col-form-label text-md-right my-text-dark" for="iva">Partiva Iva*</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="p_iva" id="p_iva" maxlength="11">
                                  
@@ -36,7 +36,7 @@
 
                             {{-- Address Label --}}
                             <div class="mb-4 row">
-                                <label class="col-md-4 col-form-label text-md-right" for="indirizzo">Indirizzo*</label>
+                                <label class="col-md-4 col-form-label text-md-right my-text-dark" for="indirizzo">Indirizzo*</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="address" id="indirizzo">
                                  
@@ -45,7 +45,7 @@
 
                             {{-- Cechbox Label --}}
                             <div class="mb-4 row">
-                                <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Seleziona cucina') }}*</label>
+                                <label for="type" class="col-md-4 col-form-label text-md-right my-text-dark">{{ __('Seleziona cucina') }}*</label>
                                 <div class="col-md-6">
                                     <select class="form-control @error('types') is-invalid @enderror" id="types" multiple name="types[]">
                                         @foreach ($types as $type)
@@ -58,7 +58,7 @@
 
                             {{-- Email Label --}}
                             <div class="mb-4 row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}*</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right my-text-dark">{{ __('E-Mail Address') }}*</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -69,7 +69,7 @@
 
                             {{-- Password Label --}}
                             <div class="mb-4 row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}*</label>
+                                <label for="password" class="col-md-4 col-form-label text-md-right my-text-dark">{{ __('Password') }}*</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -78,7 +78,7 @@
 
                             {{-- Confirm Password Label --}}
                             <div class="mb-4 row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}*</label>
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right my-text-dark">{{ __('Confirm Password') }}*</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
