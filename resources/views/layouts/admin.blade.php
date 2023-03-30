@@ -84,11 +84,6 @@
                                     <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> Ristoranti
                                 </a>
                             </li>
-                            <li class="nav-item rounded {{ Route::currentRouteName() == 'admin.plates.index' ? 'my-selected' : '' }}">
-                                <a class="nav-link" href="{{route('admin.plates.index')}}">
-                                    <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> Piatti
-                                </a>
-                            </li>
                                 {{--
                                 <li class="nav-item rounded {{ Route::currentRouteName() == 'admin.tags.index' ? 'bg-secondary' : '' }}">
                                     <a class="nav-link text-white" href="{{route('admin.tags.index')}}">

@@ -15,8 +15,7 @@
     </div>
     <div class="text-center my-4">
         <h2>Cosa vuoi fare oggi?</h2>
-        <a href="{{route('admin.restaurateurs.index')}}" class="btn btn-outline-dark">Gestisci ristorante</a>
-        <a href="{{route('admin.plates.index')}}" class="btn btn-outline-dark">Gestisci piatti</a>
+        <a href="{{route('admin.restaurateurs.index')}}" class="btn btn-outline-dark mt-3">Gestisci ristorante</a>
     </div>
 </div>
 @endsection
