@@ -2,10 +2,10 @@
 @inject('utils', 'App\Utils\Utils')
 @section('content')
 
-	<div class="text-white py-5">
+	<div class="py-5">
 		<div class="d-flex justify-content-between align-items-center">
-			<h1>PIATTI</h1>
-			<a href="{{route('admin.plates.create') }}" class="btn btn-success">
+			<h1 class="fw-bold">Piatti</h1>
+			<a href="{{route('admin.plates.create') }}" class="btn btn-outline-dark">
 				<i class="fa-solid fa-square-plus fa-lg fa-fw"></i> Aggiungi un nuovo piatto
 			</a>
 		</div>
@@ -40,13 +40,13 @@
 							{!! $utils->changeboolean($item['visible']) !!}
 							{!! $utils->changeboolean($item['availability']) !!}
                             <div class="grid-item">{{$item['description']}}</div>
-							<div class="grid-item d-flex gap-3">
-								<a href="{{ route('admin.plates.edit', $item) }}" class="text-white"  title="Modifica"><i class="fa-solid fa-pen-to-square"></i></a>
-								<a href="{{ route('admin.plates.show', $item->slug) }}" class="text-white"  title="Visualizza"><i class="fa-solid fa-eye"></i></a>
+							<div class="grid-item controllers d-flex gap-3">
+								<a href="{{ route('admin.plates.edit', $item) }}"  title="Modifica"><i class="fa-solid fa-pen-to-square"></i></a>
+								<a href="{{ route('admin.plates.show', $item->slug) }}"  title="Visualizza"><i class="fa-solid fa-eye"></i></a>
 								 <form class="d-inline-block" action="{{route('admin.plates.destroy', $item->slug)}}" method="POST">
 									@csrf
 									@method('DELETE')
-									<a class="text-white p-0 confirm-delete" data-title="{{ $item->name }}" data-title="{{ $item->title }}" data-bs-toggle="modal" data-bs-target="#delete-modal" type="submit" title="Cancella">
+									<a class="p-0 confirm-delete" data-title="{{ $item->name }}" data-title="{{ $item->title }}" data-bs-toggle="modal" data-bs-target="#delete-modal" type="submit" title="Cancella">
 										<i class="fa-solid fa-dumpster-fire"></i>
 									</a>
 								</form> 

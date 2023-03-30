@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 @section('content')
 
-	<div class="text-white py-5">
+	<div class="py-5">
 		<div class="d-flex justify-content-between align-items-center">
-			<h1>Ristoranti</h1>
-			<a href="{{route('admin.restaurateurs.create') }}" class="btn btn-success">
+			<h1 class="fw-bold">Ristoranti</h1>
+			<a href="{{route('admin.restaurateurs.create') }}" class="btn btn-outline-dark">
 				<i class="fa-solid fa-square-plus fa-lg fa-fw"></i> Aggiungi un nuovo ristorante
 			</a>
 		</div>
@@ -21,7 +21,7 @@
 				<div class="t-head grid-container fw-bold py-4 px-3">
 					<div class="grid-item">Nome</div>
 					<div class="grid-item">Indirizzo</div>
-					<div class="grid-item">Controller</div>
+					<div class="grid-item">Azioni</div>
 				</div>
 
 				{{-- t-body --}}
@@ -30,6 +30,7 @@
 						<div class="grid-item t-row grid-container align-items-center py-3 px-3 rounded">
 							<div class="grid-item">{{$item['name']}}</div>
 							<div class="grid-item">{{$item['address']}}</div>
+
 							<div class="grid-item d-flex gap-3">
 								<a href="{{ route('admin.restaurateurs.edit', $item) }}" class="text-white"  title="Modifica"><i class="fa-solid fa-pen-to-square"></i></a>
 								<a href="{{ route('admin.restaurateurs.show', $item->slug) }}" class="text-white"  title="Cancella"><i class="fa-solid fa-eye"></i></a>
@@ -37,7 +38,7 @@
 								<form action="{{route('admin.restaurateurs.destroy', $item->slug)}}" method="POST">
 									@csrf
 									@method('DELETE')
-									<a class="text-white p-0 confirm-delete" data-title="{{ $item->name }}" data-title="{{ $item->title }}" data-bs-toggle="modal" data-bs-target="#delete-modal" type="submit" title="Cancella">
+									<a class="p-0 confirm-delete" data-title="{{ $item->name }}" data-title="{{ $item->title }}" data-bs-toggle="modal" data-bs-target="#delete-modal" type="submit" title="Cancella">
 										<i class="fa-solid fa-dumpster-fire"></i>
 									</a>
 								</form> 

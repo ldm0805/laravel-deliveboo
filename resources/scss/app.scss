@@ -1,4 +1,7 @@
+@use './partials/variables' as *;
+@use './partials/mixins' as *;
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
 
 * {
 	margin: 0;
@@ -6,7 +9,51 @@
 	box-sizing: border-box;
 }
 
-header.admin-header {
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;;
+}
+
+// Utilities
+
+.my-bg-primary {
+	background-color: $primary_color;
+}
+
+.my-text-primary {
+	color: $primary_color;
+}
+
+.my-bg-light {
+	background-color: $light_color;
+}
+
+.my-text-light {
+	color: $light_color;
+}
+
+.my-bg-dark {
+	background-color: $dark_color;
+}
+
+.my-text-dark {
+	color: $dark_color;
+}
+.my-bg-grey {
+	background-color: $grey_color;
+}
+
+.my-text-grey {
+	color: $grey_color;
+}
+
+// Style
+
+body {
+	font-family: 'Rubik', sans-serif;
+	color: $dark_color;
+}
+
+header.my-header {
 	height: 80px;
 }
 
@@ -20,17 +67,44 @@ header.admin-header {
 	}
 }
 
+// Sidebar
+
 #sidebarMenu {
 	ul {
 		display: grid;
 		grid-template-columns: auto;
 		row-gap: 0.5em;
 
+
+		// List Items
+
+		li {
+			a {
+				color: $light_color;
+			}
+		}
+		
 		li.nav-item:hover {
-			background-color: $gray-800;
+			background-color: rgba($color: $light_color, $alpha: 0.3);
+		}
+
+		li.nav-item.my-selected {
+			background-color: $light_color;
+
+			a {
+				color: $primary_color;
+			}
+		}
+
+
+		li.nav-item.my-selected:hover {
+			background-color: rgba($color: $light_color, $alpha: 1);
 		}
 	}
 }
+
+
+// Plates
 
 .plates-table {
 	.grid-container {
@@ -54,8 +128,14 @@ header.admin-header {
 		display: grid;
 		row-gap: 5px;
 
+		.controllers {
+			a {
+				color: $dark_color;
+			}
+		}
+
 		.t-row:hover {
-			background-color: $gray-800;
+			background-color: rgba($color: $dark_color, $alpha: 0.2);
 		}
 	}
 }
@@ -117,5 +197,31 @@ label {
 		right: 8px;
 		/* adjust the distance of the symbol from the input */
 		transform: translateY(-50%);
+	}
+}
+
+// Profile Update
+
+.update-profile-information, .update-password, .delete-account {
+	.my-profile-headline {
+		margin-bottom: 1em;
+		h2 {
+			font-weight: bold;
+		}
+
+		p {
+			// margin-top: 8px;
+			color: $grey_color;
+			font-size: 1.3em;
+		}
+	}
+	form {
+		label {
+			font-weight: bold;
+			color: $dark_color;
+		}
+		.my-profile-input {
+			margin-bottom: 1em;
+		}
 	}
 }
