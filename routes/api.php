@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RestaurateurController as RestaurateurController;
 use App\Http\Controllers\Api\MyCheckController as MyCheckController;
+use App\Http\Controllers\Api\TypeController as TypeController;
+
 
 
 /*
@@ -19,6 +21,7 @@ use App\Http\Controllers\Api\MyCheckController as MyCheckController;
 
 Route::get('/restaurateurs', [RestaurateurController::class, 'index']);
 Route::get('/restaurateurs/{slug}', [RestaurateurController::class, 'show']);
+Route::get('/types', [TypeController::class, 'index']);
 
 Route::middleware('auth:api')->group(function() {
 	
