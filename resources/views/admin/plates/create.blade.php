@@ -5,9 +5,6 @@
     <div class="row text-white">
         <div class="d-flex justify-content-between align-items-center">
 			<h1>AGGIUNGI PIATTO</h1>
-			<a href="{{route('admin.plates.index') }}" class="btn btn-secondary">
-				<i class="fa-solid fa-arrow-left fa-lg fa-fw"></i> Torna ai piatti
-			</a>
 		</div>
     </div>
     <div class="row">
