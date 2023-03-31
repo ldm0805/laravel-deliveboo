@@ -31,14 +31,14 @@
 							<div class="grid-item">{{$item['name']}}</div>
 							<div class="grid-item">{{$item['address']}}</div>
 
-							<div class="grid-item d-flex gap-3">
-								<a href="{{ route('admin.restaurateurs.edit', $item) }}" class="text-white"  title="Modifica"><i class="fa-solid fa-pen-to-square"></i></a>
-								<a href="{{ route('admin.restaurateurs.show', $item->slug) }}" class="text-white"  title="Cancella"><i class="fa-solid fa-eye"></i></a>
-								<a href="{{route('admin.plates.create', $item->id) }}" class="text-white"><i class="fa-solid fa-file-circle-plus"></i></a>
+							<div class="grid-item d-flex gap-3 item-controllers">
+								<a href="{{ route('admin.restaurateurs.edit', $item) }}"  title="Modifica"><i class="fa-solid fa-pen-to-square"></i></a>
+								<a href="{{ route('admin.restaurateurs.show', $item->slug) }}"  title="Cancella"><i class="fa-solid fa-eye"></i></a>
+								<a href="{{route('admin.plates.create', $item->id) }}"><i class="fa-solid fa-file-circle-plus"></i></a>
 								<form action="{{route('admin.restaurateurs.destroy', $item->slug)}}" method="POST">
 									@csrf
 									@method('DELETE')
-									<a class="p-0 confirm-delete text-white" data-title="{{ $item->name }}" data-title="{{ $item->title }}" data-bs-toggle="modal" data-bs-target="#delete-modal" type="submit" title="Cancella">
+									<a class="p-0 confirm-delete" data-title="{{ $item->name }}" data-title="{{ $item->title }}" data-bs-toggle="modal" data-bs-target="#delete-modal" type="submit" title="Cancella">
 										<i class="fa-solid fa-dumpster-fire"></i>
 									</a>
 								</form> 
