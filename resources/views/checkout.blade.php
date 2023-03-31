@@ -11,8 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mt-5">
-                <h3 class="text-center">Benvenuto nel riepilogo del tuo ordine</h3>
-                <h5 class="my-4">Inserisci i seuguenti dati per completare il tuo ordine:</h5>
+                <h3 class="text-center">Aggiungi i tuoi dati per completare il tuo ordine</h3>
                 <form action="">
                     <div class="form-group my-2">
                         <label class="fs-2 my-1 fw-semibold" for="nome">Nome</label>
@@ -21,6 +20,10 @@
                     <div class="form-group my-2">
                         <label class="fs-2 my-1 fw-semibold" for="Cognome">Cognome</label>
                         <input type="text" class="form-control" placeholder="Inserisci il tuo Cognome">
+                    </div>
+                     <div class="form-group my-2">
+                        <label class="fs-2 my-1 fw-semibold" for="Cellulare">Cellulare</label>
+                        <input type="text" class="form-control" placeholder="Inserisci il tuo Cellulare">
                     </div>
                     <div class="form-group my-2">
                         <label class="fs-2 my-1 fw-semibold" for="Città">Città</label>
