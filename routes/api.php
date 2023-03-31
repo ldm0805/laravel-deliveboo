@@ -22,6 +22,9 @@ use App\Http\Controllers\Api\TypeController as TypeController;
 Route::get('/restaurateurs', [RestaurateurController::class, 'index']);
 Route::get('/restaurateurs/{slug}', [RestaurateurController::class, 'show']);
 Route::get('/types', [TypeController::class, 'index']);
+Route::get('/types/{slug}', [TypeController::class, 'show']);
+Route::get('/typestwo/{slug}', [TypeController::class, 'showTwo']);
+
 
 Route::middleware('auth:api')->group(function() {
 	
