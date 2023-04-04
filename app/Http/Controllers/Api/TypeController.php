@@ -8,12 +8,6 @@ use App\Models\Type;
 use App\Models\Restaurateur;
 use Illuminate\Support\Facades\DB;
 
-
-
-
-
-
-
 class TypeController extends Controller
 {
     public function index(){
