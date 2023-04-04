@@ -28,7 +28,7 @@
 				<div class="t-body">
 					@foreach ($restaurateurs as $item)	
 						<div class="grid-item t-row grid-container align-items-center py-3 px-3 rounded">
-							<div class="grid-item">{{$item['name']}}</div>
+							<div class="grid-item"><a href="{{ route('admin.restaurateurs.show', $item->slug) }}">{{$item['name']}}</a></div>
 							<div class="grid-item">{{$item['address']}}</div>
 
 							<div class="grid-item d-flex gap-3 item-controllers">
