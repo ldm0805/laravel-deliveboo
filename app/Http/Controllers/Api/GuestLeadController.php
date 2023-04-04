@@ -23,9 +23,7 @@ class GuestLeadController extends Controller
             'surname' => 'required',
             'phone' => 'required',
             'mail' => 'required',
-            'date' => 'nullable',
             'address' => 'required',
-            'total' => 'required'
 
         ]);
 
