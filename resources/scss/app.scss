@@ -67,6 +67,19 @@ header.my-header {
 	}
 }
 
+.item-controllers, .grid-item {
+	a {
+		color: $dark_color;
+		text-decoration: none;
+	}
+}
+
+.grid-item {
+	a:hover {
+		text-decoration: underline;
+	}
+}
+
 // Sidebar
 
 #sidebarMenu {
@@ -103,6 +116,17 @@ header.my-header {
 	}
 }
 
+// Restaurant
+
+h1.restaurant-name {
+	font-size: 4em;
+}
+
+.restaurant-photo {
+	img {
+		object-fit: cover;
+	}
+}
 
 // Plates
 
