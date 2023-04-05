@@ -18,20 +18,29 @@ class GuestLeadController extends Controller
 
         $validator = Validator::make($form_data,
         [
-            'name' => 'required',
+            'name' => 'required|max:50',
             'slug' => 'nullable',
-            'surname' => 'required',
-            'phone' => 'required',
+            'surname' => 'required|max:70',
+            'phone' => 'required|numeric',
             'mail' => 'required',
-            'address' => 'required',
-
+            'address' => 'required|max:100',
+        ],[
+            'name.required' => 'Il nome è richiesto',
+            'name.max' => 'Il nome deve essere lungo massimo :max caratteri.',
+            'surname.required' => 'Il cognome è richiesto',
+            'surname.max' => 'Il cognome deve essere lungo massimo :max caratteri.',
+            'phone.required' => 'Il numero di telefono è richiesto',
+            // 'phone.max' => 'Il numero di telefono deve essere lungo massimo :max caratteri.',
+            'phone.numeric' => 'Il numero di telefono deve essere composto da caratteri numerici.',
+            'mail.required' => 'La mail è richiesta',
+            'mail.email' =>"L'indirizzo mail deve essere valido",
+            'address.required' => 'L\'indirizzo è richiesto',
+            'address.max' => 'L\'indirizzo essere lungo massimo :max caratteri.',
         ]);
 
         if($validator->fails()){
             return response()->json([
                 'success' => false,
-                'ciao' => 'ciao',
-
                 'errors' => $validator->errors()
             ]);
         }
