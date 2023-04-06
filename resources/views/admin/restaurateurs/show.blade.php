@@ -46,9 +46,43 @@
 
         </div>
     </div>
-
+    <div class="plates-table">
+        {{-- T-Head --}}
+        <div class="t-head grid-container fw-bold py-4 px-3">
+            <div class="grid-item g-col-2">Nome</div>
+            <div class="grid-item g-col-2">Ingredienti</div>
+            <div class="grid-item g-col-2">Prezzo</div>
+            <div class="grid-item g-col-2">Visibilità</div>
+            <div class="grid-item g-col-2">Disponibilità</div>
+            <div class="grid-item g-col-2">Descrizione</div>
+            <div class="grid-item g-col-2">Azioni</div>
+        </div>
     {{-- Plates --}}
-    @include('admin.plates.index')
+    <div class="t-body">
+        @foreach ($plates as $item)
+            @if($restaurateur->id == $item->restaurateur_id)
+                <div class="grid-item t-row grid-container align-items-center py-3 px-3 rounded">
+                    <div class="grid-item">{{$item['name']}}</div>
+                    <div class="grid-item">{{$item['ingredients']}}</div>
+                    <div class="grid-item">{{$item['price']}} €</div>
+                    {!! $utils->changeboolean($item['visible']) !!}
+                    {!! $utils->changeboolean($item['availability']) !!}
+                    <div class="grid-item">{{$item['description']}}</div>
+                    <div class="grid-item d-flex gap-3">
+                        <a href="{{ route('admin.plates.edit', $item) }}" class="text-dark" title="Modifica"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="{{ route('admin.plates.show', $item->slug) }}" class="text-dark" title="Visualizza"><i class="fa-solid fa-eye"></i></a>
+                        <form class="d-inline-block" action="{{route('admin.plates.destroy', $item->slug)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <a class="text-dark p-0 confirm-delete" data-title="{{ $item->name }}" data-title="{{ $item->title }}" data-bs-toggle="modal" data-bs-target="#delete-modal" type="submit" title="Cancella">
+                                <i class="fa-solid fa-dumpster-fire"></i>
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            @endif
+        @endforeach
+    </div>
 
     @if(session('message'))
         <div class="mt-3">
