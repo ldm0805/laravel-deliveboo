@@ -26,6 +26,7 @@ class RestaurateurController extends Controller
             return response()->json([
                 'success' => true,
                 'plates' => $plates,
+                'restaurateur' => $restaurateur,
             ]);
         }else{
             return response()->json([
