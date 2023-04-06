@@ -1,5 +1,7 @@
+@extends('layouts.admin')
 @inject('utils', 'App\Utils\Utils')
 
+@section('content')
 <div class="py-5">
 	<div class="d-flex justify-content-between align-items-center">
 		<h1 class="fw-bold">Menù</h1>
@@ -63,3 +65,4 @@
 	@endif
 </div>
 @include('admin.partials.modal_delete')
+@endsection
