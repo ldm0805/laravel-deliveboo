@@ -146,8 +146,21 @@ h1.restaurant-name {
 	}
 }
 
+.orders-table {
+	.grid-container {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		.grid-item{
+			width: 180px;
+		}
+		.grid-item:nth-child(3), .grid-item:nth-child(4), .grid-item:nth-child(5){
+			width: 100px;
+		}
+	}
+}
+
 .restaurateurs-table,
-.plates-table {
+.plates-table, .orders-table {
 	.t-body {
 		display: grid;
 		row-gap: 5px;

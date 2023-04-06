@@ -19,9 +19,9 @@
     </div>
 </div>
 <div class="container">
-        <h1>Statistiche</h1>
-        <canvas id="myChart"></canvas>
-    </div>
+    <h1>Statistiche</h1>
+    <canvas id="myChart"></canvas>
+</div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
