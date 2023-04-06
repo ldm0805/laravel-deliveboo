@@ -2,7 +2,7 @@
 @section('content')
 
 	<div class="py-5">
-		<div class="d-flex justify-content-between align-items-center">
+		<div class="d-flex justify-content-md-between flex-md-row flex-column align-items-md-center  align-items-start">
 			<h1 class="fw-bold">Ristoranti</h1>
 			<a href="{{route('admin.restaurateurs.create') }}" class="btn btn-outline-dark">
 				<i class="fa-solid fa-square-plus fa-lg fa-fw"></i> Aggiungi un nuovo ristorante

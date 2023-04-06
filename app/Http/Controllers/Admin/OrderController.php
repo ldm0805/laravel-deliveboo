@@ -18,8 +18,25 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::all();
+        $monthly_totals = array();
 
-        return view('admin.orders.index', compact('orders'));
+        foreach($orders as $order) {
+        $order_total = $order->total;
+        $order_date = $order->date;
+        $order_month = date('m', strtotime($order_date));
+        
+        if(!array_key_exists($order_month, $monthly_totals)) {
+            $monthly_totals[$order_month] = 0;
+        }
+        
+        $monthly_totals[$order_month] += $order_total;
+        asort($monthly_totals);
+        }
+
+
+
+
+        return view('admin.orders.index', compact('orders','monthly_totals'));
     }
 
     /**
