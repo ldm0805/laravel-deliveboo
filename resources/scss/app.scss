@@ -136,6 +136,14 @@ h1.restaurant-name {
 		grid-template-columns: repeat(7, 1fr);
 		column-gap: 1em;
 	}
+	.grid-item{
+		text-align: center;
+	}
+	@media(max-width: 768px) {
+		.grid-item {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}	
 }
 
 .restaurateurs-table {
@@ -157,6 +165,15 @@ h1.restaurant-name {
 			width: 100px;
 		}
 	}
+	.grid-item{
+		text-align: center;
+	}	
+	@media(max-width: 768px) {
+		.grid-item {
+			grid-template-columns: repeat(4, 1fr);
+			width: 0px;
+		}
+}
 }
 
 .restaurateurs-table,

@@ -19,7 +19,7 @@
             {{-- Type --}}
             <div class="d-flex gap-2 mb-2">
                 <h5 class="fw-bold">Tipo di cucina: </h5>
-                <div class="type-tags">
+                <div class="type-tags d-flex gap-2">
                     @foreach ($restaurateur->types as $type)
                         <p class="my-tag px-2 rounded my-bg-primary">{{$type->name}}</p>    
                     @endforeach
@@ -48,13 +48,13 @@
     </div>
     <div class="plates-table">
         {{-- T-Head --}}
-        <div class="t-head grid-container fw-bold py-4 px-3">
+        <div class="grid-item t-head grid-container fw-bold py-4 px-3">
             <div class="grid-item g-col-2">Nome</div>
             <div class="grid-item g-col-2">Ingredienti</div>
             <div class="grid-item g-col-2">Prezzo</div>
-            <div class="grid-item g-col-2">Visibilità</div>
-            <div class="grid-item g-col-2">Disponibilità</div>
-            <div class="grid-item g-col-2">Descrizione</div>
+            <div class="grid-item g-col-2 d-none d-md-block">Visibilità</div>
+            <div class="grid-item g-col-2 d-none d-md-block">Disponibilità</div>
+            <div class="grid-item g-col-2 d-none d-md-block">Descrizione</div>
             <div class="grid-item g-col-2">Azioni</div>
         </div>
     {{-- Plates --}}
@@ -62,13 +62,13 @@
         @foreach ($plates as $item)
             @if($restaurateur->id == $item->restaurateur_id)
                 <div class="grid-item t-row grid-container align-items-center py-3 px-3 rounded">
-                    <div class="grid-item">{{$item['name']}}</div>
-                    <div class="grid-item">{{$item['ingredients']}}</div>
-                    <div class="grid-item">{{$item['price']}} €</div>
-                    {!! $utils->changeboolean($item['visible']) !!}
-                    {!! $utils->changeboolean($item['availability']) !!}
-                    <div class="grid-item">{{$item['description']}}</div>
-                    <div class="grid-item d-flex gap-3">
+                    <div class="grid-item g-col-2">{{$item['name']}}</div>
+                    <div class="grid-item g-col-2">{{$item['ingredients']}}</div>
+                    <div class="grid-item g-col-2">{{$item['price']}} €</div>
+                    <div class="grid-item g-col-2 d-none d-md-block">{!! $utils->changeboolean($item['visible']) !!}</div>
+                    <div class="grid-item g-col-2 d-none d-md-block"> {!! $utils->changeboolean($item['availability']) !!}</div>
+                    <div class="grid-item g-col-2 d-none d-md-block">{{$item['description']}}</div>
+                    <div class="grid-item g-col-2 d-flex gap-3 flex-md-row flex-column justify-content-center align-items-center">
                         <a href="{{ route('admin.plates.edit', $item) }}" class="text-dark" title="Modifica"><i class="fa-solid fa-pen-to-square"></i></a>
                         <a href="{{ route('admin.plates.show', $item->slug) }}" class="text-dark" title="Visualizza"><i class="fa-solid fa-eye"></i></a>
                         <form class="d-inline-block" action="{{route('admin.plates.destroy', $item->slug)}}" method="POST">
