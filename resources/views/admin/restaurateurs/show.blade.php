@@ -34,6 +34,7 @@
 
             {{-- Controllers --}}
             <div class="d-flex gap-2 mt-4 mb-2">
+                <a href="{{route('admin.plates.create', $restaurateur->id) }}" title="Aggiungi" class="btn btn-outline-dark"><i class="fa-solid fa-file-circle-plus"></i>  Aggiungi Piatto</a>
                 <a href="{{route('admin.restaurateurs.edit', $restaurateur->slug)}}" title="Modifica" class="btn btn-outline-dark"><i class="fa-solid fa-pen-to-square"></i> Modifica</a>
                 <form action="{{route('admin.restaurateurs.destroy', $restaurateur->slug)}}" method="POST">
                     @csrf
