@@ -3,15 +3,13 @@
 @section('content')
 
 <div class="text-white">
-    {{-- Nome del piatto --}}
-    <h4 class="mt-5">Nome del piatto: {{$plate->name}}.</h4>
-
-
-<div class="d-flex my-4">
+<div class="d-flex my-4 flex-column flex-md-row">
 
     {{-- Photo --}}
-    <div class="rounded-5 image-size">
-        {!! $utils->displayImage($plate->image, $plate->name) !!}
+    <div class="cont-img">
+        <div class="rounded-5 image-size">
+            {!! $utils->displayImage($plate->image, $plate->name) !!}
+        </div>
     </div>
 
     {{-- Info --}}

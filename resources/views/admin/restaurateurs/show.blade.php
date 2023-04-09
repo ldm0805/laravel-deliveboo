@@ -3,7 +3,7 @@
 @section('content')
 
     {{-- Restaurant --}}
-    <div class="d-flex my-4">
+    <div class="d-flex my-4 flex-column flex-md-row">
 
         {{-- Photo --}}
         <div class="rounded-5 image-size restaurant-photo">

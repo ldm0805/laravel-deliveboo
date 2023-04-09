@@ -55,29 +55,30 @@ class PlateController extends Controller
     public function store(StorePlateRequest $request, Plate $plate)
     {
         $form_data = $request->validated();
-
+    
         $user = Auth::user();
-        $restaurateur = Restaurateur::where('id', $request);
-
+        // Assumendo che tu abbia l'ID del restaurateur nel form data
+        $restaurateur = Restaurateur::findOrFail($form_data['restaurateur_id']);
+    
         $newPlate = new Plate();
-
+    
         $slug = Plate::generateSlug($form_data['name']);
         $form_data['slug'] = $slug;
         $form_data['quantity'] = 0;
         $form_data['user_id'] = $user->id;
-
-
+    
         if($request->hasFile('image')){
             $path = Storage::disk('public')->put('images_folder', $request->image);
-
+    
             $form_data['image'] = $path;
         }
-
+    
         $newPlate->fill($form_data);
-
+    
         $newPlate->save();
-
-        return redirect()->route('admin.plates.index', $newPlate->slug)->with('message', 'Il piatto: '.$newPlate->name.' è stato aggiunto correttamente');
+    
+        // Passa lo slug del restaurateur alla funzione route()
+        return redirect()->route('admin.restaurateurs.show', [$restaurateur->slug])->with('message', 'Il piatto: '.$newPlate->name.' è stato aggiunto correttamente');
     }
 
     /**
@@ -159,6 +160,6 @@ class PlateController extends Controller
             return redirect()->route('admin.restaurateurs.index')->with('message', 'Non puoi modificare gli elementi di un altro utente');
         }
         $plate->delete();
-        return redirect()->route('admin.plates.index')->with('message', 'Il piatto: '.$plate->name.' è stato cancellato correttamente');
+        return redirect()->route('admin.restaurateurs.index')->with('message', 'Il piatto: '.$plate->name.' è stato cancellato correttamente');
     }
 }

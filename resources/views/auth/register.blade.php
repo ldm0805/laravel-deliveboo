@@ -91,6 +91,9 @@
                                 </div>
                             </div>
                         </form>
+                        <div>
+                            <p class="text-end">I dati contrassegnati con * sono obbligatori.</p>
+                        </div>
                     </div>
                 </div>
             </div>
