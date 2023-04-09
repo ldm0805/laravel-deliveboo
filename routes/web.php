@@ -40,8 +40,6 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('types', TypeController::class)->parameters(['types' => 'type:slug']);  
     Route::resource('orders', OrderController::class)->parameters(['order' => 'order:slug']);      
 });
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

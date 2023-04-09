@@ -199,11 +199,15 @@ label {
 	text-transform: capitalize;
 }
 
-.image-size {
-	width: 300px;
-	height: 300px;
-	object-fit: cover;
+.image-size{
+	width: 400px;
 
+	object-fit: contain;
+	object-position: center;		
+	.image-size {
+		// max-width:100%;
+		max-height:100%;
+	}
 }
 
 .btn-yellow {
