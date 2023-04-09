@@ -126,6 +126,7 @@ class PlateController extends Controller
     {
         $form_data = $request->validated();
     
+        $restaurateur = Restaurateur::findOrFail($form_data['restaurateur_id']);
         // Genero uno slug tramite una funzione (project.php) dal titolo del progetto
         $slug = Plate::generateSlug($request->name);
     
@@ -143,7 +144,7 @@ class PlateController extends Controller
          }
 
         $plate->update($form_data);       
-        return redirect()->route('admin.plates.index')->with('message', 'La modifica è andata a buon fine.');
+        return redirect()->route('admin.restaurateurs.show', [$restaurateur->slug])->with('message', 'La modifica del : '.$plate->name.' è andata a buon fine.');
     }
 
     /**
