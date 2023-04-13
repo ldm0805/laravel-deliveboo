@@ -1,11 +1,12 @@
 
 <div class="lead-container">
     <h2>Deliveboo</h2>
+    <h3>Hai ricevuto un nuovo ordine, ecco un riepilogo dei dati:</h3>
     <p><strong>Nome:</strong> {{$lead->name}}</p>
     <p><strong>Cognome:</strong> {{$lead->surname}}</p>
     <p><strong>Email:</strong> {{$lead->mail}}</p>
     <p><strong>Telefono:</strong> {{$lead->phone}}</p>
-    {{-- <p><strong>Totale:</strong> {{$lead->total}}</p> --}}
+    <p><strong>Totale:</strong> {{$lead->total}}</p>
 </div>
     <style>
         .lead-container {

@@ -144,7 +144,7 @@ class PlateController extends Controller
          }
 
         $plate->update($form_data);       
-        return redirect()->route('admin.restaurateurs.show', [$restaurateur->slug])->with('message', 'La modifica del : '.$plate->name.' è andata a buon fine.');
+        return redirect()->route('admin.restaurateurs.show', [$restaurateur->slug])->with('message', 'La modifica del piatto: '.$plate->name.' è andata a buon fine.');
     }
 
     /**

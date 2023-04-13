@@ -80,12 +80,12 @@
                             </li>
                             <li class="nav-item rounded {{ Route::currentRouteName() == 'admin.restaurateurs.index' ? 'my-selected' : '' }}">
                                 <a class="nav-link" href="{{route('admin.restaurateurs.index') }}">
-                                    <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> Ristoranti
+                                    <i class="fa-solid fa-utensils"></i> Ristoranti
                                 </a>
                             </li>
                             <li class="nav-item rounded {{ Route::currentRouteName() == 'admin.orders.index' ? 'my-selected' : '' }}">
                                 <a class="nav-link" href="{{route('admin.orders.index') }}">
-                                    <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> Ordini
+                                    <i class="fa-solid fa-chart-line"></i> Ordini
                                 </a>
                             </li>
                                 {{--
