@@ -1,88 +1,75 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Type;
-use App\Http\Requests\StoreTypeRequest;
-use App\Http\Requests\UpdateTypeRequest;
-use App\Http\Controllers\Controller; //NECESSARIO  
+use App\Models\Restaurateur;
+use Illuminate\Support\Facades\DB;
+
+
+
+
+
 
 
 class TypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function index(){
+        $types = Type::all();
+        return response()->json([
+            'success' => true,
+            'results' => $types,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    public function show($slug){
+        $types = Type::all()->where('slug', $slug)->first();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreTypeRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreTypeRequest $request)
-    {
-        //
-    }
+        
+        $restaurateurs = DB::table('restaurateurs')
+            ->join('restaurateur_type', 'restaurateurs.id', '=', 'restaurateur_type.restaurateur_id')
+            ->join('types', 'restaurateur_type.type_id', '=', 'types.id')
+            ->where('types.slug', '=', $slug)
+            ->select('restaurateurs.*', DB::raw('GROUP_CONCAT(types.name SEPARATOR ", ") as types'))
+            ->groupBy('restaurateurs.id')
+            ->get();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Type $type)
-    {
-        //
+        if($restaurateurs){
+            return response()->json([
+                'success' => true,
+                'restaurateurs' => $restaurateurs,
+            ]);
+        }else{
+            return response()->json([
+                'success' => false,
+                'error' => 'Nessun piatto trovato',
+            ]);
+        }
     }
+    public function showTwo($slug){
+        $types = Type::all()->where('slug', $slug)->first();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Type $type)
-    {
-        //
-    }
+        
+        $restaurateurs = DB::table('restaurateurs')
+            ->join('restaurateur_type', 'restaurateurs.id', '=', 'restaurateur_type.restaurateur_id')
+            ->join('types', 'restaurateur_type.type_id', '=', 'types.id')
+            ->where('types.slug', '=', $slug)
+            ->select('restaurateurs.*', DB::raw('GROUP_CONCAT(types.name SEPARATOR ", ") as types'))
+            ->groupBy('restaurateurs.id')
+            ->get();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateTypeRequest  $request
-     * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateTypeRequest $request, Type $type)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Type $type)
-    {
-        //
+        if($restaurateurs){
+            return response()->json([
+                'success' => true,
+                'restaurateurs' => $restaurateurs,
+            ]);
+        }else{
+            return response()->json([
+                'success' => false,
+                'error' => 'Nessun piatto trovato',
+            ]);
+        }
     }
 }
